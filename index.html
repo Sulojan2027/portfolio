@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — AI & Computer Vision Enthusiast</title>
+  <meta name="description"
+    content="Personal portfolio of an AI and Computer Vision enthusiast showcasing projects, skills, and experience in deep learning, neural networks, and visual intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Background particle canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner">
+      <!-- Dark mode toggle -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#work" class="nav-link">My Work</a></li>
+        <li><a href="#contact" class="nav-link nav-link--cta">Let's Talk</a></li>
+      </ul>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#work" class="mobile-link">My Work</a>
+      <a href="#contact" class="mobile-link">Let's Talk</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════ ABOUT (Hero + About Combined) ═══════════════════════ -->
+  <section id="about" class="hero">
+    <!-- Ambient glow orbs -->
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-orb hero-orb--3"></div>
+
+    <div class="hero-split container">
+      <!-- LEFT — Name + Social Links -->
+      <div class="hero-left">
+        <div class="hero-content">
+          <p class="hero-im">I'm</p>
+          <h1 class="hero-title">
+            <span class="hero-line hero-line--accent">Sulojan</span>
+            <span class="hero-line hero-line--name2">Rajkumar</span>
+          </h1>
+          <p class="hero-subtitle">Building intelligent systems that see, understand, and transform the world through
+            deep learning and visual intelligence.</p>
+
+          <!-- Find Me -->
+          <p class="hero-find-me">Find Me on:</p>
+          <div class="hero-socials">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/sulojan-rajkumar-b69498297/" target="_blank" rel="noopener noreferrer"
+              class="social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/Sulojan2027" target="_blank" rel="noopener noreferrer" class="social-icon"
+              aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg>
+            </a>
+            <!-- Email -->
+            <a href="mailto:sulojanrajkumar@email.com" class="social-icon" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M22 4L12 13 2 4" />
+              </svg>
+            </a>
+            <!-- Kaggle -->
+            <a href="https://www.kaggle.com/sulojanrajkumar" target="_blank" rel="noopener noreferrer"
+              class="social-icon" aria-label="Kaggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 3v18" />
+                <path d="M18 3L10 12l9 9" />
+              </svg>
+            </a>
+            <!-- Coursera -->
+            <a href="https://www.coursera.org/user/c56661a55bafc0acf9ac8646a8ecc19b" target="_blank"
+              rel="noopener noreferrer" class="social-icon" aria-label="Coursera">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M15.5 9.5a4 4 0 1 0 0 5" />
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/sulojan_r/" target="_blank" rel="noopener noreferrer" class="social-icon"
+              aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — About Text + CV -->
+      <div class="hero-right">
+        <div class="hero-about-text">
+          <p class="about-body">
+            I am an Engineering undergraduate pursuing a B.Sc. Engineering (Hons) in Electronic and Telecommunication
+            Engineering at the University of Moratuwa, currently working as an AI Engineer Intern at Pekoe Pvt Ltd. I am
+            passionate about deep learning, computer vision, image processing, and neural networks.
+            I build systems that bridge the gap between human vision and artificial intelligence. </p>
+        </div>
+        <!-- CV Button -->
+        <a href="https://drive.google.com/your-cv-link" target="_blank" class="btn btn--cv" id="download-cv">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Find my CV
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section work-section">
+    <div class="container">
+      <p class="section-eyebrow">Selected Work</p>
+      <h2 class="section-title">Projects</h2>
+
+      <!-- ── Individual Projects ── -->
+      <h3 class="project-category">Individual Projects</h3>
+      <div class="project-grid">
+
+        <article class="project-card" id="proj-uav">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="Drone" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">UAV · AirSim · VLM</span>
+              <h3 class="card-title">Autonomous UAV Mission Planning Framework</h3>
+              <p class="card-desc">UAV mission execution with Cosys-AirSim and Vision-Language Models for intelligent drone navigation.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>Collaborated on a UAV autonomous mission execution framework integrated with Cosys-AirSim and Vision-Language Models (VLMs) for intelligent drone navigation and decision-making.</li>
+              <li>Developed a Python-based automation pipeline to parse AirSim trajectory data and dynamically generate Third-Person View (TPV) visualizations.</li>
+              <li>Developed image processing based drone patrolling algorithm and optimized coordinate system mapping and trajectory synchronization.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> Python, AirSim, VLMs, OpenCV</p>
+          </div>
+        </article>
+
+        <article class="project-card" id="proj-tea">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=600&q=80" alt="Tea leaves" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">ResNet · EfficientNet · ViT</span>
+              <h3 class="card-title">Tea Leaves Defect Detection</h3>
+              <p class="card-desc">Comparative analysis of CNN and Vision Transformer architectures for tea leaf defect classification.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>Worked on tea leaf defect detection using ResNet, EfficientNet, and Vision Transformer (ViT).</li>
+              <li>Analyzed and compared CNN-based models in handling high-resolution leaf images, feature extraction efficiency, and generalization to unseen defect patterns.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> Python, PyTorch, ResNet, EfficientNet, ViT, Kaggle</p>
+            <a href="#" target="_blank" class="btn-github">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card" id="proj-pcb">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Circuit board" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">YOLOv8 · Streamlit</span>
+              <h3 class="card-title">PCB Defect Detection</h3>
+              <p class="card-desc">Custom-trained YOLOv8 model for real-time PCB manufacturing defect detection via Streamlit.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>Developed a defect detection system for PCBs using a custom-trained YOLOv8 model on a Kaggle dataset.</li>
+              <li>Deployed via Streamlit to enable real-time defect detection through a web interface.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> Python, YOLOv8, OpenCV, Streamlit, Kaggle, NumPy, Pillow</p>
+            <a href="#" target="_blank" class="btn-github">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card" id="proj-write2digit">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aeb9?w=600&q=80" alt="Handwriting" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">TensorFlow · Flask</span>
+              <h3 class="card-title">Write2Digit — Handwritten Digit Classifier</h3>
+              <p class="card-desc">Draw digits on a canvas and classify them in real time using a custom deep learning model.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>Web-based application allowing users to draw digits (0–9) and classify them in real time using a custom deep learning model.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> Python, TensorFlow/Keras, OpenCV, Flask, HTML/CSS, JavaScript (Canvas API)</p>
+            <a href="#" target="_blank" class="btn-github">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card" id="proj-3models">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80" alt="Neural network" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">NumPy · TensorFlow</span>
+              <h3 class="card-title">Three Deep Learning Models from Scratch</h3>
+              <p class="card-desc">Neural network from scratch, digit classification, and CNN classifier on CIFAR-10.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li><strong>Neural Network from Scratch:</strong> Implemented with NumPy and Pandas — forward and backward propagation.</li>
+              <li><strong>Handwritten Digit Classification:</strong> Dense neural network for digit recognition.</li>
+              <li><strong>CNN Image Classifier (CIFAR-10):</strong> CNN to classify images into 10 classes.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> Python, NumPy, Pandas, TensorFlow/Keras, Matplotlib</p>
+            <a href="#" target="_blank" class="btn-github">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card" id="proj-hackathon">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Data analytics" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">Scikit-learn · KMeans</span>
+              <h3 class="card-title">Customer Segmentation — IntelliHack 5.0</h3>
+              <p class="card-desc">Unsupervised learning for customer segmentation in an inter-university ML hackathon.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>IntelliHack 5.0 (Inter-University ML Hackathon) — clustering solution for customer segmentation.</li>
+              <li>Applied unsupervised learning techniques to identify hidden customer segments in E-commerce data.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> Python, Scikit-learn (KMeans, PCA), pandas, matplotlib, seaborn</p>
+            <a href="#" target="_blank" class="btn-github">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card" id="proj-medibox">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=80" alt="IoT device" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">IoT · MQTT · NodeRed</span>
+              <h3 class="card-title">Smart MediBox — Medicine Alert System</h3>
+              <p class="card-desc">IoT-based smart pillbox with scheduled reminders, environment monitoring, and MQTT dashboard.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>IoT-based smart pillbox that reminds consumers to take medicines on schedule while monitoring storage conditions.</li>
+              <li>Uses MQTT to post alarms on a Node-RED dashboard.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> NodeRed, MQTT, C++</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- ── Group Projects ── -->
+      <h3 class="project-category">Group Projects</h3>
+      <div class="project-grid">
+
+        <article class="project-card" id="proj-vit">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80" alt="AI brain" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">ViT · TensorFlow</span>
+              <h3 class="card-title">Vision Transformer — Implementation & Fine-Tuning</h3>
+              <p class="card-desc">Complete ViT-B/16 from scratch in TensorFlow with transfer learning comparison on CIFAR-10.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>Developed complete ViT-B/16 architecture from scratch based on the Google Brain paper.</li>
+              <li>Comparative analysis between training from scratch and transfer learning on CIFAR-10.</li>
+              <li>Fine-tuned pre-trained ViT-B16 via TensorFlow Hub to achieve superior accuracy.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> Python, TensorFlow, TensorFlow Hub, CIFAR-10</p>
+            <a href="#" target="_blank" class="btn-github">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card" id="proj-robot">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600&q=80" alt="Robot" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">Analog · Hardware</span>
+              <h3 class="card-title">Analog Wall-Following Robot</h3>
+              <p class="card-desc">Analog wall-following robot designed entirely without microcontrollers.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>Semester-long design and development of an analog wall-following robot.</li>
+              <li>Operated entirely without microcontrollers (MCUs) — pure analog circuit design.</li>
+            </ul>
+            <a href="#" target="_blank" class="btn-github">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card" id="proj-torque">
+          <div class="project-card__preview">
+            <div class="card-visual"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="PCB design" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">Altium · STM32 · UART</span>
+              <h3 class="card-title">Capacitive Torque Sensor</h3>
+              <p class="card-desc">Real-time torque measurement using capacitive sensing with PCB design and UART transmission.</p>
+            </div>
+            <div class="card-glow"></div>
+            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+          <div class="project-card__details">
+            <ul>
+              <li>Designed a capacitive-type torque sensor using changing capacitance as a function of mechanical deformation.</li>
+              <li>Developed hierarchical schematic and PCB layout in Altium with signal processing and UART data transmission.</li>
+            </ul>
+            <p class="card-tools"><strong>Tools:</strong> Altium Designer, STM32CubeIDE, Embedded C, UART, MATLAB</p>
+            <a href="#" target="_blank" class="btn-github">View on GitHub</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CONTACT FORM ═══════════════════════ -->
+  <section id="contact" class="section contact-section">
+    <div class="container contact-inner">
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2 class="contact-title">Let's Build<br />Something Brilliant.</h2>
+      <form id="contact-form" class="contact-form" action="https://formsubmit.co/your@email.com" method="POST">
+        <input type="hidden" name="_subject" value="New Portfolio Contact!">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <div class="form-group">
+          <label for="contact-name" class="form-label">Name</label>
+          <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="contact-email" class="form-label">Email</label>
+          <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="contact-message" class="form-label">Message</label>
+          <textarea id="contact-message" name="message" class="form-input form-textarea"
+            placeholder="Write your message..." rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--large btn--submit">Send Message →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer id="footer" class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 Sulojan Rajkumar. All rights reserved.</p>
+      <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 16V4M10 4L4 10M10 4L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Project Detail Modal -->
+  <div id="project-modal" class="project-modal">
+    <div class="project-modal__backdrop"></div>
+    <div class="project-modal__content">
+      <button class="project-modal__close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="project-modal__image"></div>
+      <div class="project-modal__body">
+        <span class="card-tag" id="modal-tag"></span>
+        <h3 class="project-modal__title" id="modal-title"></h3>
+        <div class="project-modal__details" id="modal-details"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
