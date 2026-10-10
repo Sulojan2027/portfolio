@@ -1,1 +1,6 @@
 *.pdf
+# Original phone photo (may contain EXIF/location data); images/profile.jpg is the stripped crop
+images/archive/MyImage.jpeg
+images/projects/_originals/
+# Original photo with GPS location data; images/profile-portrait.jpg is the stripped crop
+myimg.jpeg

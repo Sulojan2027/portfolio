@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) — kept from the previous version; remove this block to drop analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RP3VG9QFWF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,546 +12,783 @@
     gtag('config', 'G-RP3VG9QFWF');
   </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sulojan Rajkumar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sulojan Rajkumar | Computer Vision &amp; Deep Learning</title>
   <meta name="description"
-    content="Personal portfolio of an AI and Computer Vision enthusiast showcasing projects, skills, and experience in deep learning, neural networks, and visual intelligence." />
+    content="Sulojan Rajkumar is an engineering undergraduate at the University of Moratuwa working on computer vision, deep learning, vision-language models and UAV perception." />
+  <meta name="author" content="Sulojan Rajkumar" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#F4F3EC" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0E1024" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://sulojan2027.github.io/portfolio/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Sulojan Rajkumar | Computer Vision &amp; Deep Learning" />
+  <meta property="og:description"
+    content="Engineering undergraduate at the University of Moratuwa working on computer vision, deep learning and UAV perception." />
+  <meta property="og:url" content="https://sulojan2027.github.io/portfolio/" />
+  <meta property="og:image" content="https://sulojan2027.github.io/portfolio/images/profile.jpg" />
+  <meta property="og:image:alt" content="Portrait of Sulojan Rajkumar" />
+  <meta property="profile:first_name" content="Sulojan" />
+  <meta property="profile:last_name" content="Rajkumar" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sulojan Rajkumar | Computer Vision &amp; Deep Learning" />
+  <meta name="twitter:description"
+    content="Engineering undergraduate at the University of Moratuwa working on computer vision, deep learning and UAV perception." />
+  <meta name="twitter:image" content="https://sulojan2027.github.io/portfolio/images/profile.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sulojan Rajkumar",
+    "url": "https://sulojan2027.github.io/portfolio/",
+    "image": "https://sulojan2027.github.io/portfolio/images/profile.jpg",
+    "jobTitle": "Engineering undergraduate",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Moratuwa",
+      "url": "https://uom.lk/"
+    },
+    "knowsAbout": ["Computer vision", "Deep learning", "Vision-language models", "Vision transformers", "UAV autonomy", "Image processing", "Embedded systems"],
+    "sameAs": [
+      "https://github.com/Sulojan2027",
+      "https://www.linkedin.com/in/sulojan-rajkumar-b69498297/",
+      "https://huggingface.co/Sulojan"
+    ]
+  }
+  </script>
+
+  <!-- Apply saved theme before first paint to avoid a flash -->
+  <script>
+    document.documentElement.classList.add('js');
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Background particle canvas -->
-  <canvas id="particle-canvas"></canvas>
+  <!-- Inline SVG icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6.5 12 13l8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor"/><path style="fill:var(--icon-fg, #fff)" d="M6.94 9.5H4.5V19h2.44zM5.72 5.5a1.41 1.41 0 1 0 0 2.82 1.41 1.41 0 0 0 0-2.82zM19.5 13.6c0-2.55-1.36-3.74-3.18-3.74-1.47 0-2.13.81-2.5 1.38V9.5h-2.44V19h2.44v-5.02c0-1.32.25-2.6 1.88-2.6 1.6 0 1.62 1.5 1.62 2.68V19h2.44z"/></symbol>
+    <symbol id="i-hf" viewBox="0 0 95 88"><path style="fill:currentColor" d="M47.21 76.5a34.75 34.75 0 1 0 0-69.5 34.75 34.75 0 0 0 0 69.5Z"/><path style="fill:currentColor" d="M81.96 41.75a34.75 34.75 0 1 0-69.5 0 34.75 34.75 0 0 0 69.5 0Zm-73.5 0a38.75 38.75 0 1 1 77.5 0 38.75 38.75 0 0 1-77.5 0Z"/><path style="fill:var(--card, #fff)" d="M58.5 32.3c1.28.44 1.78 3.06 3.07 2.38a5 5 0 1 0-6.76-2.07c.61 1.15 2.55-.72 3.7-.32ZM34.95 32.3c-1.28.44-1.79 3.06-3.07 2.38a5 5 0 1 1 6.76-2.07c-.61 1.15-2.56-.72-3.7-.32Z"/><path style="fill:var(--card, #fff)" fill-rule="evenodd" clip-rule="evenodd" d="M39.43 54a8.7 8.7 0 0 1 5.3-4.49c.4-.12.81.57 1.24 1.28.4.68.82 1.37 1.24 1.37.45 0 .9-.68 1.33-1.35.45-.7.89-1.38 1.32-1.25a8.61 8.61 0 0 1 5 4.17c3.73-2.94 5.1-7.74 5.1-10.7 0-2.34-1.57-1.6-4.09-.36l-.14.07c-2.31 1.15-5.39 2.67-8.77 2.67s-6.45-1.52-8.77-2.67c-2.6-1.29-4.23-2.1-4.23.29 0 3.05 1.46 8.06 5.47 10.97Z"/><path style="fill:currentColor" d="M46.96 56.29c9.83 0 13-8.76 13-13.26 0-2.34-1.57-1.6-4.09-.36-2.33 1.15-5.46 2.74-8.9 2.74-7.19 0-13-6.88-13-2.38s3.16 13.26 13 13.26Z"/><path style="fill:var(--card, #fff)" d="M70.71 37a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5ZM24.21 37a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5ZM17.52 48c-1.62 0-3.06.66-4.07 1.87a5.97 5.97 0 0 0-1.33 3.76 7.1 7.1 0 0 0-1.94-.3c-1.55 0-2.95.59-3.94 1.66a5.8 5.8 0 0 0-.8 7 5.3 5.3 0 0 0-1.79 2.82c-.24.9-.48 2.8.8 4.74a5.22 5.22 0 0 0-.37 5.02c1.02 2.32 3.57 4.14 8.52 6.1 3.07 1.22 5.89 2 5.91 2.01a44.33 44.33 0 0 0 10.93 1.6c5.86 0 10.05-1.8 12.46-5.34 3.88-5.69 3.33-10.9-1.7-15.92-2.77-2.78-4.62-6.87-5-7.77-.78-2.66-2.84-5.62-6.25-5.62a5.7 5.7 0 0 0-4.6 2.46c-1-1.26-1.98-2.25-2.86-2.82A7.4 7.4 0 0 0 17.52 48Zm0 4c.51 0 1.14.22 1.82.65 2.14 1.36 6.25 8.43 7.76 11.18.5.92 1.37 1.31 2.14 1.31 1.55 0 2.75-1.53.15-3.48-3.92-2.93-2.55-7.72-.68-8.01.08-.02.17-.02.24-.02 1.7 0 2.45 2.93 2.45 2.93s2.2 5.52 5.98 9.3c3.77 3.77 3.97 6.8 1.22 10.83-1.88 2.75-5.47 3.58-9.16 3.58-3.81 0-7.73-.9-9.92-1.46-.11-.03-13.45-3.8-11.76-7 .28-.54.75-.76 1.34-.76 2.38 0 6.7 3.54 8.57 3.54.41 0 .7-.17.83-.6.79-2.85-12.06-4.05-10.98-8.17.2-.73.71-1.02 1.44-1.02 3.14 0 10.2 5.53 11.68 5.53.11 0 .2-.03.24-.1.74-1.2.33-2.04-4.9-5.2-5.21-3.16-8.88-5.06-6.8-7.33.24-.26.58-.38 1-.38 3.17 0 10.66 6.82 10.66 6.82s2.02 2.1 3.25 2.1c.28 0 .52-.1.68-.38.86-1.46-8.06-8.22-8.56-11.01-.34-1.9.24-2.85 1.31-2.85Z"/><path style="fill:currentColor" d="M38.6 76.69c2.75-4.04 2.55-7.07-1.22-10.84-3.78-3.77-5.98-9.3-5.98-9.3s-.82-3.2-2.69-2.9c-1.87.3-3.24 5.08.68 8.01 3.91 2.93-.78 4.92-2.29 2.17-1.5-2.75-5.62-9.82-7.76-11.18-2.13-1.35-3.63-.6-3.13 2.2.5 2.79 9.43 9.55 8.56 11-.87 1.47-3.93-1.71-3.93-1.71s-9.57-8.71-11.66-6.44c-2.08 2.27 1.59 4.17 6.8 7.33 5.23 3.16 5.64 4 4.9 5.2-.75 1.2-12.28-8.53-13.36-4.4-1.08 4.11 11.77 5.3 10.98 8.15-.8 2.85-9.06-5.38-10.74-2.18-1.7 3.21 11.65 6.98 11.76 7.01 4.3 1.12 15.25 3.49 19.08-2.12Z"/><path style="fill:var(--card, #fff)" d="M77.4 48c1.62 0 3.07.66 4.07 1.87a5.97 5.97 0 0 1 1.33 3.76 7.1 7.1 0 0 1 1.95-.3c1.55 0 2.95.59 3.94 1.66a5.8 5.8 0 0 1 .8 7 5.3 5.3 0 0 1 1.78 2.82c.24.9.48 2.8-.8 4.74a5.22 5.22 0 0 1 .37 5.02c-1.02 2.32-3.57 4.14-8.51 6.1-3.08 1.22-5.9 2-5.92 2.01a44.33 44.33 0 0 1-10.93 1.6c-5.86 0-10.05-1.8-12.46-5.34-3.88-5.69-3.33-10.9 1.7-15.92 2.78-2.78 4.63-6.87 5.01-7.77.78-2.66 2.83-5.62 6.24-5.62a5.7 5.7 0 0 1 4.6 2.46c1-1.26 1.98-2.25 2.87-2.82A7.4 7.4 0 0 1 77.4 48Zm0 4c-.51 0-1.13.22-1.82.65-2.13 1.36-6.25 8.43-7.76 11.18a2.43 2.43 0 0 1-2.14 1.31c-1.54 0-2.75-1.53-.14-3.48 3.91-2.93 2.54-7.72.67-8.01a1.54 1.54 0 0 0-.24-.02c-1.7 0-2.45 2.93-2.45 2.93s-2.2 5.52-5.97 9.3c-3.78 3.77-3.98 6.8-1.22 10.83 1.87 2.75 5.47 3.58 9.15 3.58 3.82 0 7.73-.9 9.93-1.46.1-.03 13.45-3.8 11.76-7-.29-.54-.75-.76-1.34-.76-2.38 0-6.71 3.54-8.57 3.54-.42 0-.71-.17-.83-.6-.8-2.85 12.05-4.05 10.97-8.17-.19-.73-.7-1.02-1.44-1.02-3.14 0-10.2 5.53-11.68 5.53-.1 0-.19-.03-.23-.1-.74-1.2-.34-2.04 4.88-5.2 5.23-3.16 8.9-5.06 6.8-7.33-.23-.26-.57-.38-.98-.38-3.18 0-10.67 6.82-10.67 6.82s-2.02 2.1-3.24 2.1a.74.74 0 0 1-.68-.38c-.87-1.46 8.05-8.22 8.55-11.01.34-1.9-.24-2.85-1.31-2.85Z"/><path style="fill:currentColor" d="M56.33 76.69c-2.75-4.04-2.56-7.07 1.22-10.84 3.77-3.77 5.97-9.3 5.97-9.3s.82-3.2 2.7-2.9c1.86.3 3.23 5.08-.68 8.01-3.92 2.93.78 4.92 2.28 2.17 1.51-2.75 5.63-9.82 7.76-11.18 2.13-1.35 3.64-.6 3.13 2.2-.5 2.79-9.42 9.55-8.55 11 .86 1.47 3.92-1.71 3.92-1.71s9.58-8.71 11.66-6.44c2.08 2.27-1.58 4.17-6.8 7.33-5.23 3.16-5.63 4-4.9 5.2.75 1.2 12.28-8.53 13.36-4.4 1.08 4.11-11.76 5.3-10.97 8.15.8 2.85 9.05-5.38 10.74-2.18 1.69 3.21-11.65 6.98-11.76 7.01-4.31 1.12-15.26 3.49-19.08-2.12Z"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </svg>
 
-  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
-  <nav id="navbar" class="navbar">
-    <div class="nav-inner">
-      <!-- Dark mode toggle -->
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </svg>
-        <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#work" class="nav-link">My Work</a></li>
-        <li><a href="#contact" class="nav-link nav-link--cta">Let's Talk</a></li>
-      </ul>
-      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true">SR</span><span class="brand__name">Sulojan Rajkumar</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon-moon" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-moon" /></svg>
+          <svg class="icon-sun" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-sun" /></svg>
+        </button>
+      </nav>
     </div>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu">
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#work" class="mobile-link">My Work</a>
-      <a href="#contact" class="mobile-link">Let's Talk</a>
-    </div>
-  </nav>
+  </header>
 
-  <!-- ═══════════════════════ ABOUT (Hero + About Combined) ═══════════════════════ -->
-  <section id="about" class="hero">
-    <!-- Ambient glow orbs -->
-    <div class="hero-orb hero-orb--1"></div>
-    <div class="hero-orb hero-orb--2"></div>
-    <div class="hero-orb hero-orb--3"></div>
+  <main id="main" tabindex="-1">
 
-    <div class="hero-split container">
-      <!-- LEFT — Name + Social Links -->
-      <div class="hero-left">
-        <div class="hero-content">
-          <p class="hero-im">I'm</p>
-          <h1 class="hero-title">
-            <span class="hero-line hero-line--accent">Sulojan</span>
-            <span class="hero-line hero-line--name2">Rajkumar</span>
-          </h1>
-          <p class="hero-subtitle">Building intelligent systems that see, understand, and transform the world through
-            deep learning and visual intelligence.</p>
+    <!-- ───────────── Intro ───────────── -->
+    <section id="about" class="hero wrap" aria-labelledby="top">
+      <!-- Profile photo: replace images/profile-portrait.jpg (4:5, head to hips, ≥720×900 px ideally) to update -->
+      <figure class="hero__photo taped">
+        <img src="images/profile-portrait.jpg" width="720" height="900" alt="Portrait of Sulojan Rajkumar" />
+      </figure>
 
-          <!-- Find Me -->
-          <p class="hero-find-me">Find Me on:</p>
-          <div class="hero-socials">
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/sulojan-rajkumar-b69498297/" target="_blank" rel="noopener noreferrer"
-              class="social-icon" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-            <!-- GitHub -->
-            <a href="https://github.com/Sulojan2027" target="_blank" rel="noopener noreferrer" class="social-icon"
-              aria-label="GitHub">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-              </svg>
-            </a>
-            <!-- Email -->
-            <a href="mailto:sulojanrajkumar@email.com" class="social-icon" aria-label="Email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="M22 4L12 13 2 4" />
-              </svg>
-            </a>
-            <!-- Kaggle -->
-            <a href="https://www.kaggle.com/sulojanrajkumar" target="_blank" rel="noopener noreferrer"
-              class="social-icon" aria-label="Kaggle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M6 3v18" />
-                <path d="M18 3L10 12l9 9" />
-              </svg>
-            </a>
-            <!-- Coursera -->
-            <a href="https://www.coursera.org/user/c56661a55bafc0acf9ac8646a8ecc19b" target="_blank"
-              rel="noopener noreferrer" class="social-icon" aria-label="Coursera">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M15.5 9.5a4 4 0 1 0 0 5" />
-              </svg>
-            </a>
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/sulojan_r/" target="_blank" rel="noopener noreferrer" class="social-icon"
-              aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-          </div>
+      <div class="hero__text">
+        <p class="hero__eyebrow">Computer Vision · Deep Learning · Autonomous Systems</p>
+        <h1 id="top">Sulojan Rajkumar</h1>
+        <p class="hero__role">Engineering Undergraduate, Electronic &amp; Telecommunication Engineering,
+          University of Moratuwa</p>
+
+        <p>I'm an engineering undergrad at the <strong>University of Moratuwa</strong> working on
+          <strong>computer vision</strong> and <strong>deep learning</strong>, with a particular interest in
+          vision-language models, autonomous systems and world models.</p>
+        <p>I'm currently working on <a href="#projects">AutoLayout</a>, my final-year project on generating PCB
+          layouts from circuit schematics with vision-language models. Before that I was a
+          <a href="#experience">research assistant</a> on UAV mission planning with VLMs and an AI engineer intern at
+          <a href="https://www.teaai.ai/">TeaAI</a>. I enjoy building systems end to end, from sensors and circuits to trained models and deployed
+          interfaces.</p>
+
+        <!-- EDITABLE: update this line as your plans change -->
+        <p class="hero__open"><span class="hand">Open to</span> <span class="hero__open-roles">PhD positions, research internships and
+          collaborations</span> in computer vision and machine learning.</p>
+
+        <div class="hero__links">
+          <a class="btn btn--primary" href="https://drive.google.com/file/d/1bCWLywMF7AknFmNwC5kJ0KiaZcgKQe3m/view?usp=sharing">
+            <svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-file" /></svg>
+            CV (PDF)
+          </a>
+          <!-- Set data-user and data-domain to your address; main.js turns this into a mailto link + copy button -->
+          <span class="chip" id="email" data-user="sulojanrajkumar" data-domain="gmail.com">
+            <svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-mail" /></svg>
+            <span>sulojanrajkumar [at] gmail [dot] com</span>
+          </span>
+          <ul class="socials" aria-label="Profiles">
+            <li><a href="https://github.com/Sulojan2027" aria-label="GitHub" title="GitHub"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-github" /></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/sulojan-rajkumar-b69498297/" aria-label="LinkedIn" title="LinkedIn"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-linkedin" /></svg></a></li>
+            <li><a href="https://huggingface.co/Sulojan" aria-label="Hugging Face" title="Hugging Face"><svg width="24" height="22" aria-hidden="true" focusable="false"><use href="#i-hf" /></svg></a></li>
+            <!-- Add when available:
+            <li><a href="https://scholar.google.com/citations?user=YOUR_ID" aria-label="Google Scholar">…</a></li> -->
+          </ul>
         </div>
       </div>
+    </section>
 
-      <!-- RIGHT — About Text + CV -->
-      <div class="hero-right">
-        <div class="hero-about-text">
-          <p class="about-body">
-            I am an Engineering undergraduate pursuing a B.Sc. Engineering in Electronic and Telecommunication
-            Engineering at the University of Moratuwa. I am passionate about deep learning, computer vision, image
-            processing, and neural networks.
-            I build systems that bridge the gap between human vision and artificial intelligence. </p>
-        </div>
-        <!-- CV Button -->
-        <a href="https://drive.google.com/file/d/1bCWLywMF7AknFmNwC5kJ0KiaZcgKQe3m/view?usp=sharing" target="_blank"
-          class="btn btn--cv" id="download-cv">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
-          Find my CV
-        </a>
+    <!-- ───────────── Research interests ───────────── -->
+    <section id="research" class="wrap" aria-labelledby="research-h">
+      <h2 id="research-h" class="section-title">Research Interests</h2>
+      <div class="card taped research-card">
+        <p>My research interests lie at the intersection of <strong>computer vision</strong>, <strong>multimodal
+          learning</strong> and <strong>autonomous systems</strong>. I am interested in models that understand the
+          world through vision, language, audio and other signals; in <strong>world models</strong> that let a model
+          predict outcomes and plan before it acts; and in bringing these methods to autonomous machines that must
+          perceive, reason and decide reliably in the real world.</p>
+        <ul class="tags tags--soft" aria-label="Research areas"><li>Computer Vision</li><li>Multimodal Learning</li><li>World Models</li><li>Applied AI</li><li>Autonomous Systems</li></ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="work" class="section work-section">
-    <div class="container">
-      <p class="section-eyebrow">Selected Work</p>
-      <h2 class="section-title">Projects</h2>
+    <!-- ───────────── Education ───────────── -->
+    <section id="education" class="wrap" aria-labelledby="education-h">
+      <h2 id="education-h" class="section-title">Education</h2>
+      <div class="stack stack--tight">
+        <article class="card taped entry">
+          <div class="entry__head">
+            <h3>B.Sc. Engineering (Hons) in Electronic &amp; Telecommunication Engineering</h3>
+            <span class="entry__date">Feb 2023 – present</span>
+          </div>
+          <p class="meta">University of Moratuwa, Sri Lanka</p>
+          <p><strong>GPA 3.89 / 4.0 · Dean's List in all six semesters</strong></p>
+          <p class="meta">Relevant coursework: Computer Vision, Machine Learning, Autonomous Systems, Pattern Recognition, Embedded Systems</p>
+        </article>
+        <article class="card taped entry">
+          <div class="entry__head">
+            <h3>G.C.E. Advanced Level &amp; G.C.E. Ordinary Level</h3>
+            <span class="entry__date">2008 – 2022</span>
+          </div>
+          <p class="meta">Vavuniya Nelukkulam K.M.V., Sri Lanka</p>
+          <p>A/L:<strong> 3 A's, Z-score 2.6030, District Rank 1, Island Rank 75 (top 0.2%)</strong><br />
+            O/L:<strong> 9 A's</strong></p>
+          <p class="meta">Relevant coursework: Combined Mathematics, Physics and Chemistry</p>
 
-      <!-- ── Individual Projects ── -->
-      <h3 class="project-category">Individual Projects</h3>
-      <div class="project-grid">
+        </article>
+      </div>
+    </section>
 
-        <article class="project-card" id="proj-uav">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80"
-                alt="Drone" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">UAV · AirSim · VLM</span>
-              <h3 class="card-title">Autonomous UAV Mission Planning Framework</h3>
-              <p class="card-desc">UAV mission execution with Cosys-AirSim and Vision-Language Models for intelligent
-                drone navigation.</p>
+    <!-- ───────────── Experience ───────────── -->
+    <section id="experience" class="wrap" aria-labelledby="experience-h">
+      <h2 id="experience-h" class="section-title">Experience</h2>
+      <div class="stack stack--tight">
+        <article class="card taped entry">
+          <div class="entry__head">
+            <h3>Research Assistant: UAV Mission Planning &amp; VLMs</h3>
+            <span class="entry__date">Jan 2026 – Apr 2026</span>
+          </div>
+          <p class="meta">Supporting a graduate student's research project</p>
+          <ul>
+            <li>Worked on autonomous UAV mission execution integrated with Cosys-AirSim and vision-language models for drone navigation.</li>
+            <li>Developed an image-processing-based drone patrol algorithm and a Python pipeline that parses AirSim trajectory data to generate third-person-view (TPV) visualizations of each mission.</li>
+          </ul>
+        </article>
+        <article class="card taped entry">
+          <div class="entry__head">
+            <h3>AI Engineer Intern</h3>
+            <span class="entry__date">Dec 2025 – Jun 2026</span>
+          </div>
+          <p class="meta"><a href="https://www.teaai.ai/">TeaAI</a></p>
+          <ul>
+            <li>Built production MLOps pipelines, CLI utilities, computer vision algorithms and automated data-processing workflows.</li>
+            <li>Carried out research and development across computer vision, machine learning and AI tasks.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────── Selected work ─────────────
+         Each card shows a summary; the <template class="work-detail"> inside it holds the
+         detailed view (gallery + write-up) that main.js opens in the project dialog.
+         Images live in images/projects/<folder>/ (main.webp = card image). -->
+    <section id="projects" class="wrap" aria-labelledby="projects-h">
+      <h2 id="projects-h" class="section-title">Selected Work</h2>
+
+      <div class="work-grid">
+
+        <!-- AutoLayout -->
+        <article class="card taped work-card">
+          <div class="work-card__media work-card__media--contain" style="--media-bg:#0F172A">
+            <img src="images/projects/autolayout/main.svg" width="800" height="500" loading="lazy"
+              alt="Concept illustration: a circuit schematic transformed into a PCB layout" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Final-year project · 2026 · <span class="status">In progress</span></p>
+            <h3><button type="button" class="work-card__open">AutoLayout: PCB Layouts from Circuit Schematics</button></h3>
+            <p>A vision-language model pipeline that reads schematic images and netlists and produces the board layout as
+              a structured JSON file that EDA software can import.</p>
+            <ul class="stats"><li><b>VLM</b><span>schematic → layout</span></li><li><b>JSON</b><span>EDA-importable output</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>VLMs</li><li>Multimodal learning</li><li>EDA</li><li>PCB design</li></ul>
+            <div class="work-card__foot"><span class="work-card__more">View details →</span></div>
+            <!-- Add a Code link when github.com/AutoLayout-AI/autolayout-vlm is public -->
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/autolayout/main.svg" width="800" height="500" alt="Concept illustration: a schematic transformed into a PCB layout" /><figcaption>Concept: schematic in, PCB layout out.</figcaption></figure>
+              <figure><img src="images/projects/autolayout/idea.webp" width="993" height="278" alt="Pipeline: schematic representations go into the system, which outputs a JSON layout for EDA software" /><figcaption>Problem setup: trained on schematic–layout pairs, the system outputs a JSON layout that EDA tools can import.</figcaption></figure>
             </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li>Collaborated on a UAV autonomous mission execution framework integrated with Cosys-AirSim and
-                Vision-Language Models (VLMs) for intelligent drone navigation and decision-making.</li>
-              <li>Developed a Python-based automation pipeline to parse AirSim trajectory data and dynamically generate
-                Third-Person View (TPV) visualizations.</li>
-              <li>Developed image processing based drone patrolling algorithm and optimized coordinate system mapping
-                and trajectory synchronization.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> Python, AirSim, VLMs, OpenCV</p>
-          </div>
+            <div data-content>
+              <p class="meta">Final-year project · Jun 2026 – present · <span class="status">In progress</span></p>
+              <h3>AutoLayout: Generating PCB Layouts from Circuit Schematics</h3>
+              <h4>Problem</h4>
+              <p>Turning a circuit schematic into a printed circuit board (placing components and routing traces) is still
+                largely manual, slow and dependent on expert judgement.</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>An end-to-end vision-language model pipeline that takes schematic images and text netlists as input.</li>
+                <li>The model is trained on schematics paired with their finished PCB layouts.</li>
+                <li>It outputs component placement and 2D routing as a structured JSON file that EDA software can import.</li>
+              </ul>
+              <h4>Status</h4>
+              <p>Ongoing final-year project. Results will be added here as the work progresses.</p>
+              <ul class="tags" aria-label="Technologies"><li>VLMs</li><li>Multimodal learning</li><li>EDA</li><li>PCB design</li></ul>
+            </div>
+          </template>
         </article>
 
-        <article class="project-card" id="proj-tea">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/Tea.png" alt="Tea leaves" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">ResNet · EfficientNet · ViT</span>
-              <h3 class="card-title">Tea Leaves Defect Detection</h3>
-              <p class="card-desc">Comparative analysis of CNN and Vision Transformer architectures for tea leaf defect
-                classification.</p>
+        <!-- MissionBench / autonomous UAV -->
+        <article class="card taped work-card">
+          <div class="work-card__media">
+            <img src="images/projects/autouav/main.webp" width="1200" height="677" loading="lazy"
+              alt="Third-person view of a drone mission trajectory with camera viewpoints over a simulated street" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Research assistantship · 2026</p>
+            <h3><button type="button" class="work-card__open">MissionBench: Mission-Level Evaluation of Aerial MLLM Agents</button></h3>
+            <p>A benchmark that tests off-the-shelf multimodal LLMs as drone agents on long missions given a single
+              instruction. I built the patrol algorithm and the third-person-view visualization pipeline.</p>
+            <ul class="stats"><li><b>120</b><span>missions</span></li><li><b>22</b><span>MLLMs evaluated</span></li><li><b>&lt;35%</b><span>best success rate</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>Cosys-AirSim</li><li>MLLMs</li><li>OpenCV</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://gomtae.github.io/publications/missionbench">Project page</a>
+              <a class="btn" href="https://arxiv.org/abs/2607.22014">arXiv</a>
+              <span class="work-card__more">View details →</span>
             </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
           </div>
-          <div class="project-card__details">
-            <ul>
-              <li>Worked on tea leaf defect detection using ResNet, EfficientNet, and Vision Transformer (ViT).</li>
-              <li>Analyzed and compared CNN-based models in handling high-resolution leaf images, feature extraction
-                efficiency, and generalization to unseen defect patterns.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> Python, PyTorch, ResNet, EfficientNet, ViT, Kaggle</p>
-            <a href="https://github.com/Sulojan2027/Tea-leaves-defect-detection-ResNet-EfficientNet-and-ViT-"
-              target="_blank" class="btn-github">View on GitHub</a>
-          </div>
-        </article>
-
-        <article class="project-card" id="proj-pcb">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/pcb.jpg" alt="Circuit board" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">YOLOv8 · Streamlit</span>
-              <h3 class="card-title">PCB Defect Detection</h3>
-              <p class="card-desc">Custom-trained YOLOv8 model for real-time PCB manufacturing defect detection via
-                Streamlit.</p>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><video src="images/projects/autouav/flight.mp4" poster="images/projects/autouav/flight-poster.webp" width="512" height="288" muted loop playsinline preload="none" aria-label="Drone flight in the simulated environment"></video><figcaption>A drone agent flying in one of the photorealistic simulation environments.</figcaption></figure>
+              <figure><img src="images/projects/autouav/uav1.webp" width="1600" height="903" alt="Third-person view of a mission trajectory with camera viewpoints, for the mission 'Report the license plate of the gray car'" /><figcaption>Third-person view of a mission (“Report the license plate of the gray car”), showing the trajectory and camera viewpoints.</figcaption></figure>
             </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li>Developed a defect detection system for PCBs using a custom-trained YOLOv8 model on a Kaggle dataset.
-              </li>
-              <li>Deployed via Streamlit to enable real-time defect detection through a web interface.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> Python, YOLOv8, OpenCV, Streamlit, Kaggle, NumPy, Pillow</p>
-            <a href="https://github.com/Sulojan2027/PCB_Defect_Detect" target="_blank" class="btn-github">View on
-              GitHub</a>
-          </div>
-        </article>
-
-        <article class="project-card" id="proj-write2digit">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/wrt.png" alt="Handwriting" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">TensorFlow · Flask</span>
-              <h3 class="card-title">Write2Digit — Handwritten Digit Classifier</h3>
-              <p class="card-desc">Draw digits on a canvas and classify them in real time using a custom deep learning
-                model.</p>
-            </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li>Web-based application allowing users to draw digits (0–9) and classify them in real time using a
-                custom deep learning model.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> Python, TensorFlow/Keras, OpenCV, Flask, HTML/CSS, JavaScript
-              (Canvas API)</p>
-            <a href="https://github.com/Sulojan2027/write2digit-Digit_classifier" target="_blank"
-              class="btn-github">View on GitHub</a>
-          </div>
-        </article>
-
-        <article class="project-card" id="proj-3models">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/DL.png" alt="Neural network" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">NumPy · TensorFlow</span>
-              <h3 class="card-title">Deep Neural Network from Scratch</h3>
-              <p class="card-desc">A clean, modular implementation of Deep Neural Networks entirely from scratch using
-                Python and NumPy, without relying on high-level frameworks like TensorFlow or PyTorch.
-            </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li><strong>Neural Network from Scratch:</strong> Implemented with NumPy and Pandas — forward and backward
-                propagation.</li>
-              <li><strong>Handwritten Digit Classification:</strong> Dense neural network for digit recognition.</li>
-              <li><strong>CNN Image Classifier (CIFAR-10):</strong> CNN to classify images into 10 classes.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> Python, NumPy, Pandas, TensorFlow/Keras, Matplotlib</p>
-            <a href="https://github.com/Sulojan2027/Deep_learning_models" target="_blank" class="btn-github">View on
-              GitHub</a>
-          </div>
-        </article>
-
-        <article class="project-card" id="proj-hackathon">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
-                alt="Data analytics" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">Scikit-learn · KMeans</span>
-              <h3 class="card-title">Customer Segmentation — IntelliHack 5.0</h3>
-              <p class="card-desc">Unsupervised learning for customer segmentation in an inter-university ML hackathon.
+            <div data-content>
+              <p class="meta">Research assistantship · Jan 2026 – Apr 2026</p>
+              <h3>MissionBench: Zero-Shot Mission-Level Evaluation for Aerial MLLM Agents</h3>
+              <p>MissionBench tests frozen, off-the-shelf multimodal LLMs on long-horizon drone tasks from a single
+                natural-language instruction. The agent must decide where to fly, how to position itself and what to
+                report, coordinating perception, planning, movement and viewpoint selection end to end.</p>
+              <h4>My contribution</h4>
+              <p>I worked on the project as a research assistant supporting a graduate student:</p>
+              <ul>
+                <li>Developed an image-processing-based drone patrol algorithm.</li>
+                <li>Built a Python pipeline that parses AirSim trajectory data and automatically generates third-person-view
+                  (TPV) visualizations of each mission.</li>
+                <li>Worked on coordinate-system mapping and trajectory synchronization between the simulator and the agent.</li>
+              </ul>
+              <h4>The benchmark at a glance</h4>
+              <ul class="stats"><li><b>120</b><span>missions</span></li><li><b>5</b><span>photorealistic environments</span></li><li><b>4</b><span>task families</span></li><li><b>22</b><span>MLLMs evaluated</span></li></ul>
+              <p>Task families are Reporting, Inspection, Manipulation and Patrol. Across the 22 open- and closed-source models
+                evaluated zero-shot, even the best achieve below 35% success, showing that mission-level embodied reasoning
+                is still an open problem.</p>
+              <p class="note">Benchmark figures are from the paper (Navaratnarajah, Kim, Ruthardt et al., arXiv:2607.22014).</p>
+              <ul class="tags" aria-label="Technologies"><li>Python</li><li>Cosys-AirSim</li><li>MLLMs</li><li>OpenCV</li></ul>
+              <p class="buttons">
+                <a class="btn" href="https://gomtae.github.io/publications/missionbench">Project page</a>
+                <a class="btn" href="https://arxiv.org/abs/2607.22014">arXiv</a>
+                <a class="btn" href="https://github.com/FraunhoferIVI/MissionBench"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
               </p>
             </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li>IntelliHack 5.0 (Inter-University ML Hackathon) — clustering solution for customer segmentation.</li>
-              <li>Applied unsupervised learning techniques to identify hidden customer segments in E-commerce data.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> Python, Scikit-learn (KMeans, PCA), pandas, matplotlib,
-              seaborn</p>
-            <a href="https://github.com/Sulojan2027/IntelliHack-Customer_Segmentation" target="_blank"
-              class="btn-github">View on GitHub</a>
-          </div>
+          </template>
         </article>
 
-        <article class="project-card" id="proj-medibox">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/med.webp" alt="IoT device" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">IoT · MQTT · NodeRed</span>
-              <h3 class="card-title">Smart MediBox — Medicine Alert System</h3>
-              <p class="card-desc">IoT-based smart pillbox with scheduled reminders, environment monitoring, and MQTT
-                dashboard.</p>
+        <!-- EloQ -->
+        <article class="card taped work-card">
+          <div class="work-card__media work-card__media--contain" style="--media-bg:#191b1f">
+            <img src="images/projects/eloQ/main.webp" width="1200" height="1200" loading="lazy"
+              alt="EloQ title graphic showing Meta Aria Gen 2 smart glasses" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Group project · ICE 2026 bootcamp · 2026</p>
+            <h3><button type="button" class="work-card__open">EloQ: Multimodal Public Speaking Assistant</button></h3>
+            <p>Uses Meta Aria Gen 2 smart glasses to give speakers objective feedback, combining gaze, heart rate, voice and
+              gestures into a post-talk dashboard. I built the gaze heatmap and attention timeline, and co-designed the
+              portal.</p>
+            <ul class="stats"><li><b>4</b><span>sensor streams</span></li><li><b>3-day</b><span>bootcamp build</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>Meta Aria Gen 2</li><li>Eye tracking</li><li>PPG</li><li>Speech</li><li>Web dashboard</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/designthinking-lk/team-d-website"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <a class="btn" href="https://eloq.designthinking.lk/">Website</a>
+              <span class="work-card__more">View details →</span>
             </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
           </div>
-          <div class="project-card__details">
-            <ul>
-              <li>IoT-based smart pillbox that reminds consumers to take medicines on schedule while monitoring storage
-                conditions.</li>
-              <li>Uses MQTT to post alarms on a Node-RED dashboard.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> NodeRed, MQTT, C++</p>
-          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/eloQ/main.webp" width="1200" height="1200" alt="EloQ title graphic showing Meta Aria Gen 2 smart glasses" /><figcaption>EloQ: a speaking partner built on Meta Aria Gen 2.</figcaption></figure>
+              <figure><img src="images/projects/eloQ/eyemap.webp" width="1600" height="1061" alt="Gaze heatmap of horizontal and vertical gaze angles during a talk" /><figcaption>Gaze heatmap: where the speaker looked during the talk, with the audience zone and notes/floor line.</figcaption></figure>
+              <figure><img src="images/projects/eloQ/attention.webp" width="1600" height="286" alt="Attention timeline coloured by gaze zone: left, center, right and floor or notes" /><figcaption>Attention timeline: gaze zone (left, center, right, floor/notes) over the course of the speech.</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">Group project · ICE 2026 bootcamp (led by Prof. Suranga Nanayakkara, NUS) · 2026</p>
+              <h3>EloQ: Multimodal Public Speaking Assistant for Meta Aria Gen 2</h3>
+              <h4>Problem</h4>
+              <p>Public speakers rarely get objective feedback on how they come across: whether they look at the whole
+                room, how stressed they are, or how they use their voice and hands.</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>Captures eye tracking, PPG (heart rate), spatial audio and hand tracking from Meta Aria Gen 2 glasses.</li>
+                <li>Transcribes the talk and builds a color-coded transcript: possible stress signals (heart-rate spikes),
+                  gesture or posture improvements, and strong delivery moments.</li>
+                <li>Flags speaking pace outside 95–175 words per minute and low pitch or volume variation.</li>
+                <li>Combines biometric stress analysis with a gaze-yaw distribution algorithm to compute an objective
+                  “Room Coverage Score”, shown with gaze heatmaps and an attention timeline.</li>
+                <li>A local dashboard can start and stop recordings on the glasses over USB-C and generate the report.</li>
+              </ul>
+              <h4>My contribution</h4>
+              <ul>
+                <li>Implemented the gaze heatmap, built from the gaze points recorded by the glasses while the speaker
+                  presents.</li>
+                <li>Implemented the attention timeline, built from eye-coverage data that combines gaze and head pose.</li>
+                <li>Co-designed the web dashboard portal.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies"><li>Meta Aria Gen 2</li><li>Eye tracking</li><li>PPG</li><li>Speech transcription</li><li>Web dashboard</li></ul>
+              <p class="buttons">
+                <a class="btn" href="https://github.com/designthinking-lk/team-d-website"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+                <a class="btn" href="https://eloq.designthinking.lk/">Website</a>
+              </p>
+            </div>
+          </template>
         </article>
+
+        <!-- Vision Transformer -->
+        <article class="card taped work-card">
+          <div class="work-card__media work-card__media--contain" style="--media-bg:#0b2555">
+            <img src="images/projects/vit/main.webp" width="1200" height="628" loading="lazy"
+              alt="Vision Transformer title graphic" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">University project · 2025</p>
+            <h3><button type="button" class="work-card__open">Vision Transformer from Scratch: Training &amp; Fine-Tuning</button></h3>
+            <p>ViT-B/16 built from the original paper and trained from scratch, then compared with a fine-tuned pre-trained
+              ViT and a CNN baseline on CIFAR-10.</p>
+            <ul class="stats"><li><b>95.67%</b><span>fine-tuned ViT</span></li><li><b>60.99%</b><span>from scratch</span></li><li><b>88.71%</b><span>ResNet baseline</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>PyTorch</li><li>TensorFlow</li><li>TensorFlow Hub</li><li>CIFAR-10</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/Sulojan2027/Vision_Transformer_from_paper"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/vit/results.webp" width="874" height="484" alt="Table of best validation accuracy for custom ViT, pre-trained ViT and ResNet on CIFAR-10 and Oxford-IIIT" /><figcaption>Best validation accuracy: custom ViT vs. pre-trained ViT vs. ResNet.</figcaption></figure>
+              <figure><img src="images/projects/vit/ourplot.webp" width="905" height="428" alt="Accuracy and loss curves for the from-scratch ViT on CIFAR-10" /><figcaption>From-scratch ViT on CIFAR-10: validation accuracy plateaus at 60.99% while validation loss rises, a sign of how data-hungry ViTs are.</figcaption></figure>
+              <figure><img src="images/projects/vit/main.webp" width="1200" height="628" alt="Vision Transformer title graphic" /><figcaption>Vision Transformer (ViT-B/16).</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">University project · 2025</p>
+              <h3>Vision Transformer from Scratch: Training &amp; Fine-Tuning</h3>
+              <h4>Question</h4>
+              <p>How much does large-scale pre-training matter for a Vision Transformer trained on a small dataset?</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>Implemented ViT-B/16 from <em>“An Image is Worth 16×16 Words”</em> (Dosovitskiy et al., 2021): 16×16 patch
+                  embeddings, learnable positional encodings, a [CLS] token, multi-head self-attention and MLP blocks.</li>
+                <li>Trained it from scratch on CIFAR-10 and Oxford-IIIT Pet.</li>
+                <li>Fine-tuned a ViT-B/16 pre-trained on ImageNet-21k (via TensorFlow Hub), starting with a frozen backbone and
+                  gradually unfreezing layers.</li>
+              </ul>
+              <h4>Results (best validation accuracy)</h4>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th scope="col">Dataset</th><th scope="col">ViT (from scratch)</th><th scope="col">ViT (pre-trained)</th><th scope="col">ResNet (CNN)</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">CIFAR-10</th><td>60.99%</td><td><b>95.67%</b></td><td>88.71%</td></tr>
+                    <tr><th scope="row">Oxford-IIIT Pet</th><td>5.43%</td><td><b>90%</b></td><td>87.09%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Trained from scratch on small datasets, the transformer underfits badly; with pre-training it surpasses the CNN
+                baseline on both datasets.</p>
+              <ul class="tags" aria-label="Technologies"><li>PyTorch</li><li>TensorFlow</li><li>TensorFlow Hub</li><li>CIFAR-10</li><li>Oxford-IIIT Pet</li></ul>
+              <p class="buttons"><a class="btn" href="https://github.com/Sulojan2027/Vision_Transformer_from_paper"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
+            </div>
+          </template>
+        </article>
+
+        <!-- Tea leaf disease classification -->
+        <article class="card taped work-card">
+          <div class="work-card__media work-card__media--contain" style="--media-bg:#ffffff">
+            <img src="images/projects/teadefect/main.webp" width="850" height="456" loading="lazy"
+              alt="Diagram of a CNN classifier applied to a tea-leaf image" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Individual project · 2025</p>
+            <h3><button type="button" class="work-card__open">Tea Leaf Disease Classification: CNNs vs. ViT</button></h3>
+            <p>Classifies eight tea-leaf conditions with transfer learning, comparing EfficientNetV2B3, ResNet50V2 and a
+              Vision Transformer on accuracy, size and speed.</p>
+            <ul class="stats"><li><b>91.5%</b><span>val accuracy</span></li><li><b>0.917</b><span>macro F1</span></li><li><b>8</b><span>classes</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>TensorFlow/Keras</li><li>EfficientNet</li><li>ResNet</li><li>ViT</li><li>Kaggle</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/Sulojan2027/Tea-leaves-defect-detection-ResNet-EfficientNet-and-ViT-"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/teadefect/teadefect.webp" width="1600" height="230" alt="Sample tea-leaf validation images with predicted and true labels" /><figcaption>Best model (EfficientNetV2B3) on validation images: predicted vs. true label.</figcaption></figure>
+              <figure><img src="images/projects/teadefect/comptea.webp" width="1600" height="543" alt="Validation accuracy and macro F1 for each model and experiment" /><figcaption>Validation accuracy and macro F1 per model, with light augmentation and with strong regularisation.</figcaption></figure>
+              <figure><img src="images/projects/teadefect/statstea.webp" width="1600" height="734" alt="Heatmap of per-class F1 scores for every model and experiment" /><figcaption>Per-class F1: the ViT trails the CNNs most on anthracnose and algal leaf, classes defined by small lesions.</figcaption></figure>
+              <figure><img src="images/projects/teadefect/main.webp" width="850" height="456" alt="Diagram of a CNN classifier applied to a tea-leaf image" /><figcaption>CNN classifier on a tea-leaf image.</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">Individual project · 2025</p>
+              <h3>Tea Leaf Disease Classification: CNNs vs. Vision Transformer</h3>
+              <h4>Problem</h4>
+              <p>Identify eight tea-leaf conditions (seven diseases and healthy) from photographs, and understand how
+                convolutional networks and a Vision Transformer compare when data is limited.</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>Kaggle dataset of 885 images in 8 classes, split 708 / 177 for training and validation.</li>
+                <li>ImageNet-pretrained EfficientNetV2B3, ResNet50V2 (500 px input) and ViT-B/16 (224 px) with frozen backbones;
+                  only the classification heads are trained.</li>
+                <li>A second round tested strong regularisation: heavier augmentation, dropout, label smoothing and weight decay.</li>
+              </ul>
+              <h4>Results</h4>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th scope="col">Model</th><th scope="col">Val accuracy</th><th scope="col">Macro F1</th><th scope="col">Params</th><th scope="col">Inference</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">EfficientNetV2B3</th><td><b>91.5%</b></td><td><b>0.917</b></td><td>13.7 M</td><td>23.4 ms</td></tr>
+                    <tr><th scope="row">ResNet50V2</th><td>88.7%</td><td>0.889</td><td>24.6 M</td><td>23.3 ms</td></tr>
+                    <tr><th scope="row">ViT-B/16 (frozen)</th><td>88.1%</td><td>0.882</td><td>85.8 M</td><td>16.7 ms</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <ul>
+                <li>EfficientNetV2B3 is the most accurate with the fewest parameters.</li>
+                <li>The frozen ViT matches ResNet50V2 while training only a 6K-parameter head.</li>
+                <li>Strong regularisation shrank the train/validation gap (ResNet50V2 from 9.5 to 2.4 points) but lowered
+                  validation accuracy, so the combined regularisation was too strong.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies"><li>TensorFlow/Keras</li><li>KerasHub</li><li>EfficientNet</li><li>ResNet</li><li>ViT</li><li>Kaggle</li></ul>
+              <p class="buttons"><a class="btn" href="https://github.com/Sulojan2027/Tea-leaves-defect-detection-ResNet-EfficientNet-and-ViT-"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
+            </div>
+          </template>
+        </article>
+
+        <!-- PCB defect detection -->
+        <article class="card taped work-card">
+          <div class="work-card__media">
+            <img src="images/projects/pcbdefect/main.webp" width="1200" height="627" loading="lazy"
+              alt="PCB image with YOLOv8 bounding boxes labelling short-circuit defects" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Individual project · 2025</p>
+            <h3><button type="button" class="work-card__open">PCB Defect Detection with YOLOv8</button></h3>
+            <p>Detects six types of manufacturing defects on circuit boards, evaluated on a held-out test set and deployed
+              as a live web demo.</p>
+            <ul class="stats"><li><b>0.941</b><span>test mAP50</span></li><li><b>0.94</b><span>peak F1</span></li><li><b>18.4 ms</b><span>per image</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>YOLOv8</li><li>PyTorch</li><li>OpenCV</li><li>Streamlit</li><li>Hugging Face</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/Sulojan2027/PCB_Defect_Detect"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <a class="btn" href="https://pcb-defectdetect.streamlit.app/">Live demo</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/pcbdefect/main.webp" width="1200" height="627" alt="PCB image with YOLOv8 bounding boxes labelling short-circuit defects" /><figcaption>Detections on a test board.</figcaption></figure>
+              <figure><img src="images/projects/pcbdefect/f1pcb.webp" width="1600" height="1067" alt="F1 versus confidence curve per defect class" /><figcaption>F1 vs. confidence on the test set: overall F1 peaks at 0.94 at confidence 0.34 and stays flat between about 0.1 and 0.6.</figcaption></figure>
+              <figure><img src="images/projects/pcbdefect/pcbstat.webp" width="1600" height="800" alt="Training and validation loss, precision, recall and mAP curves" /><figcaption>Training curves: validation mAP50-95 levels off around epoch 100–120.</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">Individual project · 2025</p>
+              <h3>PCB Defect Detection with YOLOv8</h3>
+              <ul class="stats"><li><b>0.941</b><span>mAP50</span></li><li><b>0.503</b><span>mAP50-95</span></li><li><b>0.972</b><span>precision</span></li><li><b>0.912</b><span>recall</span></li></ul>
+              <h4>Problem</h4>
+              <p>Manufacturing defects on printed circuit boards are tiny: most are only 2–3% of the image's width, about
+                6–8 pixels after resizing to the model's input size, which makes small-object detection the core difficulty.</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>Kaggle <em>pcb-defects</em> dataset: 693 images, 6 defect classes (missing hole, mouse bite, open circuit,
+                  short, spur, spurious copper), split 554 / 69 / 70 for train, validation and test.</li>
+                <li>Fine-tuned a COCO-pretrained YOLOv8s (11.1M parameters) at 640×640 for 180 epochs with AdamW, mixup and mosaic
+                  augmentation (about 42 minutes of training).</li>
+                <li>Deployed as a Streamlit web app; the trained weights are hosted on the Hugging Face Hub.</li>
+              </ul>
+              <h4>Results</h4>
+              <p>On 70 held-out test images (286 boxes) the model reaches mAP50 0.941 at 18.4 ms per image. Missing hole and open
+                circuit are almost solved (mAP50 ≥ 0.99); mouse bite is most often confused with open circuit, and spur with
+                spurious copper. mAP50-95 stays around 0.5: the model finds defects but places boxes loosely, so training at
+                higher resolution or on image tiles is the main next step.</p>
+              <ul class="tags" aria-label="Technologies"><li>YOLOv8</li><li>PyTorch</li><li>OpenCV</li><li>Streamlit</li><li>Hugging Face</li><li>Kaggle</li></ul>
+              <p class="buttons">
+                <a class="btn" href="https://github.com/Sulojan2027/PCB_Defect_Detect"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+                <a class="btn" href="https://pcb-defectdetect.streamlit.app/">Live demo</a>
+                <a class="btn" href="https://huggingface.co/Sulojan/pcb-defect-yolov8s">Model on Hugging Face</a>
+              </p>
+            </div>
+          </template>
+        </article>
+
+        <!-- Capacitive torque sensor -->
+        <article class="card taped work-card">
+          <div class="work-card__media work-card__media--contain" style="--media-bg:#ffffff">
+            <img src="images/projects/captorquesensor/main.webp" width="1022" height="571" loading="lazy"
+              alt="Exploded CAD view of the capacitive torque sensor assembly" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Group project · 2025</p>
+            <h3><button type="button" class="work-card__open">Capacitive Torque Sensor</button></h3>
+            <p>A compact torque sensor that measures shaft deformation as a change in capacitance, with custom mechanics,
+              PCB, firmware and a PC interface.</p>
+            <ul class="stats"><li><b>8</b><span>engineers</span></li><li><b>PCAP04</b><span>capacitance-to-digital</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>Altium</li><li>SolidWorks</li><li>Embedded C</li><li>ATmega32U4</li><li>MATLAB</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/Sulojan2027/Capacitive-Torque-Sensor"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/captorquesensor/captorq.webp" width="1500" height="1125" alt="The assembled capacitive torque sensor in its aluminium housing" /><figcaption>The assembled sensor.</figcaption></figure>
+              <figure><img src="images/projects/captorquesensor/cappcb.webp" width="1600" height="1498" alt="Circular custom PCB for the capacitive torque sensor" /><figcaption>Custom sensing PCB, designed in Altium.</figcaption></figure>
+              <figure><img src="images/projects/captorquesensor/inner.webp" width="1600" height="1200" alt="Internal view of the sensor showing the radial capacitive plate structure" /><figcaption>Internal view: the radial plate structure whose capacitance changes under torque.</figcaption></figure>
+              <figure><img src="images/projects/captorquesensor/main.webp" width="1022" height="571" alt="Exploded CAD view of the capacitive torque sensor assembly" /><figcaption>Exploded CAD view (SolidWorks).</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">Group project (8 undergraduate engineers) · 2025</p>
+              <h3>Capacitive Torque Sensor</h3>
+              <h4>Goal</h4>
+              <p>A precise, compact and low-cost torque sensor based on capacitive sensing: torque deforms the sensor
+                plates, and the resulting change in capacitance is measured.</p>
+              <h4>Design</h4>
+              <ul>
+                <li>Custom plate layout for deflection measurement, inside a precision mechanical housing (SolidWorks).</li>
+                <li>PCAP04 capacitance-to-digital converter on a hierarchical Altium schematic and custom PCB.</li>
+                <li>ATmega16U4/32U4 microcontroller for data processing and USB communication; signal data sent over UART for
+                  analysis in MATLAB.</li>
+                <li>Real-time torque output on a display and a PC interface.</li>
+              </ul>
+              <h4>Outcome</h4>
+              <p>The team designed, simulated, assembled and tested the full system and reached about 80% of its goals; the
+                final prototype did not produce fully working torque measurements.</p>
+              <ul class="tags" aria-label="Technologies"><li>Altium Designer</li><li>SolidWorks</li><li>Embedded C</li><li>ATmega32U4</li><li>UART</li><li>MATLAB</li></ul>
+              <p class="buttons"><a class="btn" href="https://github.com/Sulojan2027/Capacitive-Torque-Sensor"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
+            </div>
+          </template>
+        </article>
+
+        <!-- Analog wall-following robot -->
+        <article class="card taped work-card">
+          <div class="work-card__media">
+            <img src="images/projects/analogwall/main.webp" width="1200" height="849" loading="lazy"
+              alt="The assembled analog wall-following robot on its green ENTC circuit board" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Group project · 2024</p>
+            <h3><button type="button" class="work-card__open">Analog Wall-Following Robot</button></h3>
+            <p>A robot that follows a wall at a constant distance using only analog circuits for sensing, control and
+              motor drive, with no microcontroller.</p>
+            <ul class="stats"><li><b>0</b><span>microcontrollers</span></li><li><b>Only</b><span>analog components</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>Analog circuit design</li><li>PWM</li><li>Feedback control</li><li>PCB</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/Sulojan2027/Analog-Wall-Following-Robot"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><video src="images/projects/analogwall/action.mp4" poster="images/projects/analogwall/action-poster.webp" width="426" height="240" muted loop playsinline preload="none" aria-label="The robot following a wall"></video><figcaption>The robot in action, following a wall.</figcaption></figure>
+              <figure><img src="images/projects/analogwall/robot.webp" width="1600" height="1852" alt="Top view of the finished robot PCB with motors and wheels" /><figcaption>The finished robot.</figcaption></figure>
+              <figure><img src="images/projects/analogwall/pwm.webp" width="1600" height="1200" alt="Oscilloscope showing the PWM signal generated by the analog circuit" /><figcaption>PWM signal generated by the analog circuit, on an oscilloscope.</figcaption></figure>
+              <figure><img src="images/projects/analogwall/main.webp" width="1200" height="849" alt="The assembled analog wall-following robot" /><figcaption>Assembled robot on its custom PCB.</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">Group project (4 members) · Semester project · 2024</p>
+              <h3>Analog Wall-Following Robot</h3>
+              <h4>Goal</h4>
+              <p>Design a robot that follows a wall while keeping a consistent distance, using only analog components:
+                no microcontroller and no digital processing.</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>Analog sensing, signal processing and feedback control to keep the distance to the wall constant.</li>
+                <li>Motor speed controlled with PWM signals generated entirely by analog circuitry.</li>
+                <li>Prototyped on a breadboard, then built on a custom PCB with full documentation, schematics and calculations.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies"><li>Analog circuit design</li><li>PWM</li><li>Feedback control</li><li>PCB</li></ul>
+              <p class="buttons"><a class="btn" href="https://github.com/Sulojan2027/Analog-Wall-Following-Robot"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
+            </div>
+          </template>
+        </article>
+
       </div>
+    </section>
 
-      <!-- ── Group Projects ── -->
-      <h3 class="project-category">Group Projects</h3>
-      <div class="project-grid">
-
-        <article class="project-card" id="proj-eloq">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/meta.jpeg" alt="EloQ Project" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">Meta Aria · Multimodal</span>
-              <h3 class="card-title">EloQ - Multimodal Public Speaking Assistant for Meta Aria 2</h3>
-              <p class="card-desc">Multimodal analytics platform utilizing Meta Aria Gen 2 smart glasses to assist
-                public speakers.</p>
-            </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li>Engineered a multimodal analytics platform utilizing Meta Aria Gen 2 smart glasses in ICE 2026
-                bootcamp to assist public speakers by capturing eye-tracking, PPG (heart rate), spatial audio, and hand
-                gestures.</li>
-              <li>Integrated biometric stress analysis with gaze-yaw distribution algorithms to compute a ’Room Coverage
-                Score,’ delivering objective, gamified feedback on audience engagement via a live web dashboard.</li>
-            </ul>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px;">
-              <a href="https://github.com/designthinking-lk/team-d-website" target="_blank" class="btn-github">View on GitHub</a>
-              <a href="https://eloq.designthinking.lk/" target="_blank" class="btn-github">Visit Website</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" id="proj-vit">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/vit.png" alt="AI brain" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">ViT · TensorFlow</span>
-              <h3 class="card-title">Vision Transformer from scratch - Training & Fine-Tuning</h3>
-              <p class="card-desc">Complete ViT-B/16 from scratch in TensorFlow with transfer learning comparison on
-                CIFAR-10.</p>
-            </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li>Developed complete ViT-B/16 architecture from scratch based on the Google Brain paper.</li>
-              <li>Comparative analysis between training from scratch and transfer learning on CIFAR-10.</li>
-              <li>Fine-tuned pre-trained ViT-B16 via TensorFlow Hub to achieve superior accuracy.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> Python, TensorFlow, TensorFlow Hub, CIFAR-10</p>
-            <a href="https://github.com/Sulojan2027/Vision_Transformer_from_paper" target="_blank"
-              class="btn-github">View on GitHub</a>
-          </div>
-        </article>
-
-        <article class="project-card" id="proj-robot">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/wf.jpg" alt="Robot" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">Analog · Hardware</span>
-              <h3 class="card-title">Analog Wall-Following Robot</h3>
-              <p class="card-desc">Analog wall-following robot designed entirely without microcontrollers.</p>
-            </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li>Semester-long design and development of an analog wall-following robot.</li>
-              <li>Operated entirely without microcontrollers (MCUs) — pure analog circuit design.</li>
-            </ul>
-            <a href="https://github.com/Sulojan2027/Analog-Wall-Following-Robot" target="_blank" class="btn-github">View
-              on GitHub</a>
-          </div>
-        </article>
-
-        <article class="project-card" id="proj-torque">
-          <div class="project-card__preview">
-            <div class="card-visual"><img src="images/ctt.png" alt="PCB design" loading="lazy" /></div>
-            <div class="card-body">
-              <span class="card-tag">Altium · STM32 · UART</span>
-              <h3 class="card-title">Capacitive Torque Sensor</h3>
-              <p class="card-desc">Real-time torque measurement using capacitive sensing with PCB design and UART
-                transmission.</p>
-            </div>
-            <div class="card-glow"></div>
-            <button class="card-expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg></button>
-          </div>
-          <div class="project-card__details">
-            <ul>
-              <li>Designed a capacitive-type torque sensor using changing capacitance as a function of mechanical
-                deformation.</li>
-              <li>Developed hierarchical schematic and PCB layout in Altium with signal processing and UART data
-                transmission.</li>
-            </ul>
-            <p class="card-tools"><strong>Tools:</strong> Altium Designer, STM32CubeIDE, Embedded C, UART, MATLAB</p>
-            <a href="https://github.com/Sulojan2027/Capacitive-Torque-Sensor" target="_blank" class="btn-github">View on
-              GitHub</a>
-          </div>
-        </article>
+    <!-- ───────────── Skills ───────────── -->
+    <section id="skills" class="wrap" aria-labelledby="skills-h">
+      <h2 id="skills-h" class="section-title">Skills</h2>
+      <div class="card taped">
+        <dl class="skills">
+          <div><dt>Languages</dt><dd><ul class="tags tags--soft"><li>Python</li><li>C++</li><li>MATLAB</li></ul></dd></div>
+          <div><dt>ML / CV</dt><dd><ul class="tags tags--soft"><li>PyTorch</li><li>TensorFlow/Keras</li><li>JAX</li><li>OpenCV</li><li>scikit-learn</li><li>YOLOv8</li><li>ViTs/CNNs</li></ul></dd></div>
+          <div><dt>Hardware &amp; Design</dt><dd><ul class="tags tags--soft"><li>Altium Designer</li><li>Multisim</li><li>LTspice</li><li>SolidWorks</li></ul></dd></div>
+          <div><dt>Tools</dt><dd><ul class="tags tags--soft"><li>Git/GitHub</li><li>Bitbucket</li><li>Linux</li><li>LaTeX</li><li>Kaggle</li><li>Colab</li><li>Streamlit</li><li>Cosys-AirSim</li></ul></dd></div>
+        </dl>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════ CONTACT FORM ═══════════════════════ -->
-  <section id="contact" class="section contact-section">
-    <div class="container contact-inner">
-      <p class="section-eyebrow">Get in Touch</p>
-      <h2 class="contact-title">Let's Build<br />Something Brilliant.</h2>
-      <form id="contact-form" class="contact-form" action="https://formsubmit.co/sulojanrajkumar@email.com"
-        method="POST">
-        <input type="hidden" name="_subject" value="New Portfolio Contact!">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <div class="form-group">
-          <label for="contact-name" class="form-label">Name</label>
-          <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name" required />
-        </div>
-        <div class="form-group">
-          <label for="contact-email" class="form-label">Email</label>
-          <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com"
-            required />
-        </div>
-        <div class="form-group">
-          <label for="contact-message" class="form-label">Message</label>
-          <textarea id="contact-message" name="message" class="form-input form-textarea"
-            placeholder="Write your message..." rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary btn--large btn--submit">Send Message →</button>
-      </form>
-    </div>
-  </section>
+    <!-- ───────────── Achievements & activities ───────────── -->
+    <section id="activities" class="wrap" aria-labelledby="activities-h">
+      <h2 id="activities-h" class="section-title">Achievements &amp; Activities</h2>
 
-  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-  <footer id="footer" class="footer">
-    <div class="container footer-inner">
-      <p class="footer-copy">&copy; 2026 Sulojan Rajkumar. All rights reserved.</p>
-      <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M10 16V4M10 4L4 10M10 4L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
+      <h3 class="sub-title">Awards &amp; Competitions</h3>
+      <ol class="timeline">
+        <li class="card taped">
+          <p class="meta">2026</p>
+          <h3>Finalist, Sri Lankan IoT Challenge 2026</h3>
+        </li>
+        <li class="card taped">
+          <p class="meta">2026</p>
+          <h3>Data Storm 7.0</h3>
+          <p>Data science competition: submitted predictive-analytics and modeling deliverables.</p>
+        </li>
+        <li class="card taped">
+          <p class="meta">2026</p>
+          <h3>ICE 2026 Bootcamp</h3>
+          <p>Three-day bootcamp led by Prof. Suranga Nanayakkara (NUS). Built EloQ on Meta Aria Gen 2 smart glasses as part of a team.</p>
+        </li>
+        <li class="card taped">
+          <p class="meta">2025</p>
+          <h3>IntelliHack 5.0, Machine Learning Hackathon</h3>
+          <p>Competed with team “The Code Rushers” on a customer-segmentation clustering problem.</p>
+        </li>
+        <li class="card taped">
+          <p class="meta">2024</p>
+          <h3>Finalist, Sri Lankan Robotics Challenge (SLRC) 2024</h3>
+          <p>Built a multitasking robot using Arduino and ESP32 with sensor fusion for line following, object detection, color recognition and object pickup.</p>
+        </li>
+        <li class="card taped">
+          <p class="meta">2023 – present</p>
+          <h3>Dean's List, Faculty of Engineering, University of Moratuwa</h3>
+          <p>Placed on the Dean's List in all six semesters so far.</p>
+        </li>
+      </ol>
+
+      <div class="list-grid">
+        <div class="card taped">
+          <h3 class="sub-title">Certifications</h3>
+          <ul class="plain-list">
+            <li><a href="https://www.deeplearning.ai/certificates/7c4fc6d9-d034-41ac-9973-c9d1ed40d10c">Agentic AI</a>, DeepLearning.AI <span class="meta">Jul 2026</span></li>
+            <li><a href="https://courses.opencv.org/certificates/9446ddd7e139447da12eb55344325611">VLM Bootcamp</a>, OpenCV University <span class="meta">Jul 2026</span></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/I0HFI0HNRLDQ">Improving Deep Neural Networks</a>, DeepLearning.AI <span class="meta">Jun 2026</span></li>
+            <li><a href="https://codesignal.com/learn/certificates/cmg7kdmd4004bl7046im7qve7/courses/1783">Advanced JAX: Transformations for Speed &amp; Scale</a>, CodeSignal <span class="meta">Nov 2025</span></li>
+            <li><a href="https://courses.opencv.org/certificates/af86d7e85c654a1ba721e6aa189e9686">PyTorch Bootcamp</a>, OpenCV University <span class="meta">Nov 2025</span></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/specialization/V7TO8MT5RI18">Machine Learning Specialization</a>, Stanford University &amp; DeepLearning.AI <span class="meta">Jul 2024 – Aug 2025</span></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/JEFXMVBTZ1NB">Neural Networks and Deep Learning</a>, DeepLearning.AI <span class="meta">Feb 2025</span></li>
+          </ul>
+          <p class="meta">All Coursera certificates: <a href="https://www.coursera.org/user/c56661a55bafc0acf9ac8646a8ecc19b">Coursera profile</a></p>
+        </div>
+
+        <div class="card taped">
+          <h3 class="sub-title">Scholarships &amp; Honors</h3>
+          <ul class="plain-list">
+            <li><strong>Mahapola Scholarship</strong>, awarded by the Government of Sri Lanka to the top 1% of university entrants</li>
+            <li><strong>Dialog Merit Scholarship</strong> for best performance in the G.C.E. Advanced Level (District Rank 1)</li>
+            <li><strong>Best Student of the Year</strong> at school, 2013–2021</li>
+          </ul>
+        </div>
+
+        <div class="card taped">
+          <h3 class="sub-title">Leadership &amp; Volunteering</h3>
+          <ul class="plain-list">
+            <li><strong>Treasurer</strong>, <a href="https://www.ausdav.org/">All University Students' Development Association</a> <span class="meta">2023 – 2025</span><br />
+              A student-led volunteer association supporting school students' education and community projects in Vavuniya District.</li>
+            <li><strong>Member</strong>, <a href="https://ent.uom.lk/electronic-club/">Electronic Club</a>, University of Moratuwa <span class="meta">2024 – present</span></li>
+            <li><strong>Senior Vice Head Prefect</strong>, high school <span class="meta">2020 – 2022</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── Publications / Reports (uncomment when you have one) ─────────────
+    <section id="publications" class="wrap" aria-labelledby="publications-h">
+      <h2 id="publications-h" class="section-title">Publications &amp; Reports</h2>
+      <article class="card taped">
+        <h3>Paper title</h3>
+        <p class="meta"><strong>S. Rajkumar</strong>, A. Coauthor, B. Advisor · Venue or "Technical report, University of Moratuwa" · Year</p>
+        <p class="buttons"><a class="btn" href="#">PDF</a> <a class="btn" href="#">Code</a></p>
+      </article>
+    </section>
+    -->
+
+    <!-- ───────────── Contact ───────────── -->
+    <section id="contact" class="wrap" aria-labelledby="contact-h">
+      <h2 id="contact-h" class="section-title">Contact</h2>
+      <div class="card taped contact">
+        <p>Happy to discuss research, collaborations or opportunities.</p>
+        <p class="chips"><span class="chip" data-email-mirror>
+          <svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-mail" /></svg>
+          <span>sulojanrajkumar [at] gmail [dot] com</span></span></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project detail dialog (filled by main.js from each card's <template class="work-detail">) -->
+  <dialog id="work-dialog" class="work-dialog" aria-labelledby="work-dialog-title">
+    <button type="button" class="work-dialog__close" aria-label="Close project details">
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="work-dialog__content"></div>
+    <div class="gallery" hidden>
+      <div class="gallery__stage"></div>
+      <button type="button" class="gallery__nav gallery__nav--prev" aria-label="Previous image">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
+      <button type="button" class="gallery__nav gallery__nav--next" aria-label="Next image">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="gallery__count" aria-live="polite"></p>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+    <p>© 2026 Sulojan Rajkumar · Last updated: October 2026</p>
+    <!-- Removed from the main link row: <a href="https://www.instagram.com/sulojan_r/">Instagram</a> -->
+    <p><a href="#top">Back to top ↑</a></p>
     </div>
   </footer>
 
-  <!-- Project Detail Modal -->
-  <div id="project-modal" class="project-modal">
-    <div class="project-modal__backdrop"></div>
-    <div class="project-modal__content">
-      <button class="project-modal__close" aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </button>
-      <div class="project-modal__image"></div>
-      <div class="project-modal__body">
-        <span class="card-tag" id="modal-tag"></span>
-        <h3 class="project-modal__title" id="modal-title"></h3>
-        <div class="project-modal__details" id="modal-details"></div>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="main.js" defer></script>
 </body>
 
 </html>

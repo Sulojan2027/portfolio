@@ -1,0 +1,9 @@
+autouav - https://gomtae.github.io/publications/missionbench
+autolayout - https://github.com/AutoLayout-AI/autolayout-vlm
+analogwall - https://github.com/Sulojan2027/Analog-Wall-Following-Robot
+captorquesensor - https://github.com/Sulojan2027/Capacitive-Torque-Sensor
+dnnfromscratch - https://github.com/Sulojan2027/Deep_Neural_Network
+eloQ - https://eloq.designthinking.lk/, https://github.com/designthinking-lk/team-d-website
+pcbdefect - https://github.com/Sulojan2027/PCB_Defect_Detect
+teadefect - https://github.com/Sulojan2027/Tea-leaves-defect-detection-ResNet-EfficientNet-and-ViT-
+vit - https://github.com/Sulojan2027/Vision_Transformer_from_paper
