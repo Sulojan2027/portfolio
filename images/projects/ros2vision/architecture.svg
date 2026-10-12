@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="1000" height="460" font-family="Figtree, system-ui, sans-serif">
+  <title>ros2-vision-autonomy architecture: Gazebo camera and clock bridged into ROS 2, where a YOLO detector publishes detections and an annotated image</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#14204A"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="460" fill="#FFFEF8"/>
+
+  <!-- Gazebo -->
+  <rect x="24" y="40" width="250" height="380" rx="14" fill="#E6F0EE" stroke="#14204A" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="149" y="72" text-anchor="middle" font-size="20" font-weight="800" fill="#14204A">Gazebo Harmonic</text>
+  <rect x="52" y="110" width="194" height="96" rx="10" fill="#fff" stroke="#14204A" stroke-width="2"/>
+  <text x="149" y="148" text-anchor="middle" font-size="18" font-weight="700" fill="#14204A">Camera sensor</text>
+  <text x="149" y="176" text-anchor="middle" font-size="15" fill="#555869">640×480 @ 30 FPS</text>
+  <rect x="52" y="280" width="194" height="80" rx="10" fill="#fff" stroke="#14204A" stroke-width="2"/>
+  <text x="149" y="326" text-anchor="middle" font-size="18" font-weight="700" fill="#14204A">Simulation clock</text>
+
+  <!-- Bridge -->
+  <rect x="330" y="186" width="170" height="96" rx="10" fill="#FFE9A8" stroke="#14204A" stroke-width="2"/>
+  <text x="415" y="226" text-anchor="middle" font-size="18" font-weight="700" fill="#14204A">gz_bridge</text>
+  <text x="415" y="254" text-anchor="middle" font-size="14" fill="#555869">ros_gz_bridge</text>
+
+  <!-- ROS 2 -->
+  <rect x="556" y="40" width="420" height="380" rx="14" fill="#E6F0EE" stroke="#14204A" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="766" y="72" text-anchor="middle" font-size="20" font-weight="800" fill="#14204A">ROS 2 Jazzy</text>
+  <rect x="584" y="186" width="180" height="96" rx="10" fill="#1A6F71" stroke="#14204A" stroke-width="2"/>
+  <text x="674" y="226" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">yolo_detector</text>
+  <text x="674" y="254" text-anchor="middle" font-size="14" fill="#E6F0EE">PyTorch · CUDA</text>
+  <rect x="810" y="110" width="146" height="80" rx="10" fill="#fff" stroke="#14204A" stroke-width="2"/>
+  <text x="883" y="146" text-anchor="middle" font-size="16" font-weight="700" fill="#14204A">Downstream</text>
+  <text x="883" y="170" text-anchor="middle" font-size="16" font-weight="700" fill="#14204A">nodes</text>
+  <rect x="810" y="290" width="146" height="80" rx="10" fill="#fff" stroke="#14204A" stroke-width="2"/>
+  <text x="883" y="326" text-anchor="middle" font-size="16" font-weight="700" fill="#14204A">rqt_image</text>
+  <text x="883" y="350" text-anchor="middle" font-size="16" font-weight="700" fill="#14204A">_view</text>
+
+  <!-- arrows -->
+  <path d="M246 158 C300 158 290 210 328 216" fill="none" stroke="#14204A" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M246 320 C300 320 290 262 328 254" fill="none" stroke="#14204A" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M500 234 L582 234" fill="none" stroke="#14204A" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M764 214 C790 200 790 160 808 154" fill="none" stroke="#14204A" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M764 254 C790 270 790 320 808 326" fill="none" stroke="#14204A" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- arrow labels -->
+  <text x="262" y="136" font-size="13" fill="#555869">camera/image</text>
+  <text x="262" y="356" font-size="13" fill="#555869">clock</text>
+  <text x="508" y="222" font-size="13" fill="#555869">/camera/image_raw</text>
+  <text x="508" y="262" font-size="13" fill="#555869">/clock</text>
+  <text x="772" y="130" font-size="13" fill="#555869" text-anchor="end">/detections</text>
+  <text x="772" y="388" font-size="13" fill="#555869" text-anchor="end">/camera/image_annotated</text>
+</svg>

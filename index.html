@@ -276,6 +276,67 @@
           </template>
         </article>
 
+        <!-- ROS 2 vision autonomy -->
+        <article class="card taped work-card">
+          <div class="work-card__media work-card__media--contain" style="--media-bg:#e0e0e0">
+            <img src="images/projects/ros2vision/main.webp" width="640" height="480" loading="lazy"
+              alt="YOLO bounding boxes around a person, car, chair and bicycle in a Gazebo simulation" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Personal project · 2026 · <span class="status">In progress</span></p>
+            <h3><button type="button" class="work-card__open">ROS 2 Vision Autonomy: YOLO Perception in Simulation</button></h3>
+            <p>A simulated Gazebo camera streams into ROS 2, where a GPU YOLO detector publishes structured detections in
+              simulation time. Next step: a robot that drives from what it sees.</p>
+            <ul class="stats"><li><b>8.7 ms</b><span>per frame (YOLO, GPU)</span></li><li><b>30 FPS</b><span>camera, 33 ms budget</span></li><li><b>3 ms</b><span>HSV baseline</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>ROS 2 Jazzy</li><li>Gazebo</li><li>YOLO</li><li>PyTorch</li><li>OpenCV</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/Sulojan2027/ros2-vision-autonomy"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/ros2vision/main.webp" width="640" height="480" alt="YOLO bounding boxes around a person, car, chair and bicycle in a Gazebo simulation" /><figcaption>YOLO26n detecting a person, car, chair and bicycle in the simulated world.</figcaption></figure>
+              <figure><img src="images/projects/ros2vision/architecture.svg" width="1000" height="460" alt="Architecture: Gazebo camera and clock go through ros_gz_bridge to the YOLO detector, which publishes detections and an annotated image" /><figcaption>Architecture: Gazebo camera and clock are bridged into ROS 2; the detector publishes detections and an annotated debug image.</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">Personal project · Sep 2026 – present · <span class="status">In progress</span></p>
+              <h3>ROS 2 Vision Autonomy: YOLO Perception in Simulation</h3>
+              <ul class="stats"><li><b>8.7 ms</b><span>per frame, YOLO on GPU</span></li><li><b>33 ms</b><span>frame budget at 30 FPS</span></li><li><b>~830 MB</b><span>GPU memory, full stack</span></li></ul>
+              <h4>Goal</h4>
+              <p>Bring computer vision and deep learning into an autonomous robot, built step by step in simulation with
+                ROS 2 Jazzy and Gazebo Harmonic.</p>
+              <h4>What works so far</h4>
+              <ul>
+                <li>A Gazebo camera (640×480 at 30 FPS) bridged into ROS 2, with all nodes running on the simulator's clock.</li>
+                <li>A YOLO detector (PyTorch, CUDA) that publishes a <code>DetectionArray</code> custom message and an annotated
+                  image for every frame. Each result carries the source image's timestamp and camera frame.</li>
+                <li>A classical HSV color detector that publishes the same message type, as a baseline and drop-in replacement.</li>
+                <li>Sensor-data QoS drops stale frames instead of queueing them, and an empty detection array is still
+                  published so that silence means the detector has stalled.</li>
+              </ul>
+              <h4>Performance (RTX 2050, 4 GB)</h4>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th scope="col">Detector</th><th scope="col">Time per frame</th><th scope="col">Notes</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">HSV color detector</th><td>~3 ms</td><td>CPU only</td></tr>
+                    <tr><th scope="row">YOLO26n (GPU)</th><td><b>~8.7 ms</b></td><td>Up to ~17 ms while sharing the GPU with Gazebo</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <h4>Next</h4>
+              <ul>
+                <li>A mobile robot with an onboard camera.</li>
+                <li>A controller node that drives the robot from detections.</li>
+                <li>A watchdog that stops the robot when detections stop.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies"><li>ROS 2 Jazzy</li><li>Gazebo Harmonic</li><li>YOLO</li><li>PyTorch</li><li>CUDA</li><li>OpenCV</li><li>Python</li></ul>
+              <p class="buttons"><a class="btn" href="https://github.com/Sulojan2027/ros2-vision-autonomy"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
+            </div>
+          </template>
+        </article>
+
         <!-- MissionBench / autonomous UAV -->
         <article class="card taped work-card">
           <div class="work-card__media">
@@ -326,6 +387,130 @@
                 <a class="btn" href="https://arxiv.org/abs/2607.22014">arXiv</a>
                 <a class="btn" href="https://github.com/FraunhoferIVI/MissionBench"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
               </p>
+            </div>
+          </template>
+        </article>
+
+        <!-- NFC attendance logger -->
+        <article class="card taped work-card">
+          <div class="work-card__media work-card__media--contain" style="--media-bg:#ebebeb">
+            <img src="images/projects/attendance/main.webp" width="896" height="1300" loading="lazy"
+              alt="Render of the attendance logger PCB with the 3-turn NFC loop antenna at the top" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Group project (3 members) · 2026</p>
+            <h3><button type="button" class="work-card__open">NFC Attendance Logger</button></h3>
+            <p>A battery-powered handheld reader that logs student ID card taps and shows up as a USB drive, with STM32
+              firmware, a custom PCB and a desktop app. I designed the NFC front end and worked on power analysis and
+              tuning.</p>
+            <ul class="stats"><li><b>~17 months</b><span>on a 1000 mAh cell</span></li><li><b>1.8 µA</b><span>when off</span></li><li><b>6,858</b><span>taps stored</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>STM32L4</li><li>ST25R3916 NFC</li><li>KiCad</li><li>Embedded C</li><li>Python</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/rajinthanr/attendance-management-system"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/attendance/pcb.webp" width="1600" height="901" alt="PCB design slide: board render with the loop antenna, and the main parts: STM32L432KB, ST25R3916, MCP73833, TPS7A0233, USBLC6-2SC6" /><figcaption>PCB: 3-turn loop antenna etched at the top, NFC front end and MCU in the middle, power section along the bottom edge.</figcaption></figure>
+              <figure><img src="images/projects/attendance/architecture.webp" width="1600" height="901" alt="System architecture: Li-ion cell, charger, LDO, STM32L432KB, ST25R3916 NFC reader, antenna, LEDs, vibration motor and power button" /><figcaption>System architecture.</figcaption></figure>
+              <figure><img src="images/projects/attendance/power.webp" width="1600" height="901" alt="Power analysis: 1.8 µA switched off, 108 µA idle scanning, 2.8 µAh per card tap, 17 months on a 1000 mAh cell, with current waveforms" /><figcaption>Power analysis: current in each state and the resulting battery life.</figcaption></figure>
+              <figure><img src="images/projects/attendance/cardtap.webp" width="1600" height="901" alt="Timing diagram of one card tap across the MCU, NFC reader, motor and LED" /><figcaption>One card tap: what the MCU, reader, motor and LED do, and when.</figcaption></figure>
+              <figure><img src="images/projects/attendance/app.webp" width="1600" height="901" alt="Screenshot of the desktop companion app listing who attended a lecture" /><figcaption>Companion app: reads the taps, shows who attended, and exports each lecture as CSV or PDF.</figcaption></figure>
+              <figure><img src="images/projects/attendance/cost.webp" width="1600" height="901" alt="Cost per unit table: 227.62 USD for one unit down to 18.31 USD at 10,000 units, with a cost breakdown at 1,000 units" /><figcaption>Cost per unit falls from $227.62 for one unit to $25.40 at 1,000 units.</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">Group project (3 members) · University of Moratuwa · Completed Oct 2026</p>
+              <h3>NFC Attendance Logger</h3>
+              <ul class="stats"><li><b>~17 months</b><span>on a 1000 mAh cell (12 worst case)</span></li><li><b>1.8 µA</b><span>switched off</span></li><li><b>108 µA</b><span>idle, scanning for a card</span></li><li><b>2.8 µAh</b><span>per card tap</span></li></ul>
+              <h4>Problem</h4>
+              <p>Taking attendance by hand in large lectures is slow and error-prone. The aim was a handheld device that
+                students tap with their existing ID cards, that runs for months on one charge, and that needs no special
+                drivers to read out.</p>
+              <h4>How it works</h4>
+              <ul>
+                <li>An ST25R3916 reader polls for ISO 14443-A cards every 100 ms while the STM32L432 sleeps. Each tap is
+                  confirmed with an LED and a vibration pulse and stored with a timestamp in on-chip flash.</li>
+                <li>Duplicates within a lecture are ignored. The log holds 6,858 records (about 64 lectures of 100 students)
+                  and survives power cuts.</li>
+                <li>Over USB-C the device appears as a USB drive with the attendance CSV, a status file and a settings file;
+                  no driver is needed.</li>
+                <li>A desktop companion app keeps student names, starts lectures and exports attendance reports as CSV or PDF.</li>
+              </ul>
+              <h4>My contribution</h4>
+              <ul>
+                <li><strong>NFC front end on the PCB:</strong> the 13.56 MHz section around the ST25R3916, including the
+                  40 × 30 mm, 3-turn loop antenna etched on the board, the EMC filter, the matching network and the
+                  capacitive RX divider.</li>
+                <li><strong>Power analysis and tuning:</strong> estimating and measuring current in each state to reach
+                  1.8 µA when off and 108 µA while scanning. The analysis showed that a 4 MHz MCU clock uses 15.2 µC per card
+                  read, against 42 µC at 24 MHz and 135 µC at 80 MHz, and that the reader's wake-up mode needs 194 µA,
+                  against 18.2 mA for constant polling.</li>
+              </ul>
+              <h4>Results</h4>
+              <ul>
+                <li>Firmware runs on the assembled board: card reading, LED and vibration feedback and the USB drive all work.</li>
+                <li>829 host tests pass for the firmware logic, and 123 tests for the companion app.</li>
+                <li>Firmware fits in 51.5 kB (release build) of the 72 kB reserved for code, leaving 56 kB of flash for the log.</li>
+                <li>Estimated cost: $25.40 per unit at 1,000 units.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies"><li>STM32L432</li><li>ST25R3916</li><li>NFC / ISO 14443-A</li><li>KiCad</li><li>Embedded C</li><li>USB MSC</li><li>Python</li><li>SQLite</li></ul>
+              <p class="buttons"><a class="btn" href="https://github.com/rajinthanr/attendance-management-system"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
+            </div>
+          </template>
+        </article>
+
+        <!-- Vision Transformer -->
+        <article class="card taped work-card">
+          <div class="work-card__media work-card__media--contain" style="--media-bg:#0b2555">
+            <img src="images/projects/vit/main.webp" width="1200" height="628" loading="lazy"
+              alt="Vision Transformer title graphic" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">University project · 2025</p>
+            <h3><button type="button" class="work-card__open">Vision Transformer from Scratch: Training &amp; Fine-Tuning</button></h3>
+            <p>ViT-B/16 built from the original paper and trained from scratch, then compared with a fine-tuned pre-trained
+              ViT and a CNN baseline on CIFAR-10.</p>
+            <ul class="stats"><li><b>95.67%</b><span>fine-tuned ViT</span></li><li><b>60.99%</b><span>from scratch</span></li><li><b>88.71%</b><span>ResNet baseline</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>PyTorch</li><li>TensorFlow</li><li>TensorFlow Hub</li><li>CIFAR-10</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/Sulojan2027/Vision_Transformer_from_paper"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><img src="images/projects/vit/results.webp" width="874" height="484" alt="Table of best validation accuracy for custom ViT, pre-trained ViT and ResNet on CIFAR-10 and Oxford-IIIT" /><figcaption>Best validation accuracy: custom ViT vs. pre-trained ViT vs. ResNet.</figcaption></figure>
+              <figure><img src="images/projects/vit/ourplot.webp" width="905" height="428" alt="Accuracy and loss curves for the from-scratch ViT on CIFAR-10" /><figcaption>From-scratch ViT on CIFAR-10: validation accuracy plateaus at 60.99% while validation loss rises, a sign of how data-hungry ViTs are.</figcaption></figure>
+              <figure><img src="images/projects/vit/main.webp" width="1200" height="628" alt="Vision Transformer title graphic" /><figcaption>Vision Transformer (ViT-B/16).</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">University project · 2025</p>
+              <h3>Vision Transformer from Scratch: Training &amp; Fine-Tuning</h3>
+              <h4>Question</h4>
+              <p>How much does large-scale pre-training matter for a Vision Transformer trained on a small dataset?</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>Implemented ViT-B/16 from <em>“An Image is Worth 16×16 Words”</em> (Dosovitskiy et al., 2021): 16×16 patch
+                  embeddings, learnable positional encodings, a [CLS] token, multi-head self-attention and MLP blocks.</li>
+                <li>Trained it from scratch on CIFAR-10 and Oxford-IIIT Pet.</li>
+                <li>Fine-tuned a ViT-B/16 pre-trained on ImageNet-21k (via TensorFlow Hub), starting with a frozen backbone and
+                  gradually unfreezing layers.</li>
+              </ul>
+              <h4>Results (best validation accuracy)</h4>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th scope="col">Dataset</th><th scope="col">ViT (from scratch)</th><th scope="col">ViT (pre-trained)</th><th scope="col">ResNet (CNN)</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">CIFAR-10</th><td>60.99%</td><td><b>95.67%</b></td><td>88.71%</td></tr>
+                    <tr><th scope="row">Oxford-IIIT Pet</th><td>5.43%</td><td><b>90%</b></td><td>87.09%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Trained from scratch on small datasets, the transformer underfits badly; with pre-training it surpasses the CNN
+                baseline on both datasets.</p>
+              <ul class="tags" aria-label="Technologies"><li>PyTorch</li><li>TensorFlow</li><li>TensorFlow Hub</li><li>CIFAR-10</li><li>Oxford-IIIT Pet</li></ul>
+              <p class="buttons"><a class="btn" href="https://github.com/Sulojan2027/Vision_Transformer_from_paper"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
             </div>
           </template>
         </article>
@@ -384,61 +569,6 @@
                 <a class="btn" href="https://github.com/designthinking-lk/team-d-website"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
                 <a class="btn" href="https://eloq.designthinking.lk/">Website</a>
               </p>
-            </div>
-          </template>
-        </article>
-
-        <!-- Vision Transformer -->
-        <article class="card taped work-card">
-          <div class="work-card__media work-card__media--contain" style="--media-bg:#0b2555">
-            <img src="images/projects/vit/main.webp" width="1200" height="628" loading="lazy"
-              alt="Vision Transformer title graphic" />
-          </div>
-          <div class="work-card__body">
-            <p class="meta">University project · 2025</p>
-            <h3><button type="button" class="work-card__open">Vision Transformer from Scratch: Training &amp; Fine-Tuning</button></h3>
-            <p>ViT-B/16 built from the original paper and trained from scratch, then compared with a fine-tuned pre-trained
-              ViT and a CNN baseline on CIFAR-10.</p>
-            <ul class="stats"><li><b>95.67%</b><span>fine-tuned ViT</span></li><li><b>60.99%</b><span>from scratch</span></li><li><b>88.71%</b><span>ResNet baseline</span></li></ul>
-            <ul class="tags" aria-label="Technologies"><li>PyTorch</li><li>TensorFlow</li><li>TensorFlow Hub</li><li>CIFAR-10</li></ul>
-            <div class="work-card__foot">
-              <a class="btn" href="https://github.com/Sulojan2027/Vision_Transformer_from_paper"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
-              <span class="work-card__more">View details →</span>
-            </div>
-          </div>
-          <template class="work-detail">
-            <div data-gallery>
-              <figure><img src="images/projects/vit/results.webp" width="874" height="484" alt="Table of best validation accuracy for custom ViT, pre-trained ViT and ResNet on CIFAR-10 and Oxford-IIIT" /><figcaption>Best validation accuracy: custom ViT vs. pre-trained ViT vs. ResNet.</figcaption></figure>
-              <figure><img src="images/projects/vit/ourplot.webp" width="905" height="428" alt="Accuracy and loss curves for the from-scratch ViT on CIFAR-10" /><figcaption>From-scratch ViT on CIFAR-10: validation accuracy plateaus at 60.99% while validation loss rises, a sign of how data-hungry ViTs are.</figcaption></figure>
-              <figure><img src="images/projects/vit/main.webp" width="1200" height="628" alt="Vision Transformer title graphic" /><figcaption>Vision Transformer (ViT-B/16).</figcaption></figure>
-            </div>
-            <div data-content>
-              <p class="meta">University project · 2025</p>
-              <h3>Vision Transformer from Scratch: Training &amp; Fine-Tuning</h3>
-              <h4>Question</h4>
-              <p>How much does large-scale pre-training matter for a Vision Transformer trained on a small dataset?</p>
-              <h4>Approach</h4>
-              <ul>
-                <li>Implemented ViT-B/16 from <em>“An Image is Worth 16×16 Words”</em> (Dosovitskiy et al., 2021): 16×16 patch
-                  embeddings, learnable positional encodings, a [CLS] token, multi-head self-attention and MLP blocks.</li>
-                <li>Trained it from scratch on CIFAR-10 and Oxford-IIIT Pet.</li>
-                <li>Fine-tuned a ViT-B/16 pre-trained on ImageNet-21k (via TensorFlow Hub), starting with a frozen backbone and
-                  gradually unfreezing layers.</li>
-              </ul>
-              <h4>Results (best validation accuracy)</h4>
-              <div class="table-wrap">
-                <table>
-                  <thead><tr><th scope="col">Dataset</th><th scope="col">ViT (from scratch)</th><th scope="col">ViT (pre-trained)</th><th scope="col">ResNet (CNN)</th></tr></thead>
-                  <tbody>
-                    <tr><th scope="row">CIFAR-10</th><td>60.99%</td><td><b>95.67%</b></td><td>88.71%</td></tr>
-                    <tr><th scope="row">Oxford-IIIT Pet</th><td>5.43%</td><td><b>90%</b></td><td>87.09%</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <p>Trained from scratch on small datasets, the transformer underfits badly; with pre-training it surpasses the CNN
-                baseline on both datasets.</p>
-              <ul class="tags" aria-label="Technologies"><li>PyTorch</li><li>TensorFlow</li><li>TensorFlow Hub</li><li>CIFAR-10</li><li>Oxford-IIIT Pet</li></ul>
-              <p class="buttons"><a class="btn" href="https://github.com/Sulojan2027/Vision_Transformer_from_paper"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
             </div>
           </template>
         </article>
