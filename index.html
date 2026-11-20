@@ -236,6 +236,70 @@
 
       <div class="work-grid">
 
+        <!-- Kinematically constrained EKF for joint angles -->
+        <article class="card taped work-card">
+          <div class="work-card__media">
+            <img src="images/projects/ekfpose/main.webp" width="1600" height="1000" loading="lazy"
+              alt="Squat frame where raw YOLO reads the knee at 4 degrees while the EKF reads 118 degrees against a true 120 degrees, with the knee-angle plot underneath" />
+          </div>
+          <div class="work-card__body">
+            <p class="meta">Personal project · 2026</p>
+            <h3><button type="button" class="work-card__open">Kinematically Constrained EKF for Joint-Angle Estimation from Video</button></h3>
+            <p>An Extended Kalman Filter that turns noisy YOLO26-Pose keypoints into smooth, physically consistent joint
+              angles with calibrated uncertainty. It rejects outliers and coasts through occlusions.</p>
+            <ul class="stats"><li><b>4×</b><span>smoother knee angle</span></li><li><b>0.5 ms</b><span>filter cost per frame</span></li><li><b>4.8%</b><span>bone-length variation (raw 11.1%)</span></li></ul>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>Kalman filtering</li><li>YOLO26-Pose</li><li>Pose estimation</li><li>NumPy</li></ul>
+            <div class="work-card__foot">
+              <a class="btn" href="https://github.com/Sulojan2027/ekf-pose"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a>
+              <span class="work-card__more">View details →</span>
+            </div>
+          </div>
+          <template class="work-detail">
+            <div data-gallery>
+              <figure><video src="videos/ekf_pose/top1_detector_failure_fixed_clip1679.mp4" poster="videos/ekf_pose/top1_detector_failure_fixed_clip1679-poster.webp" width="1280" height="720" muted loop playsinline preload="none" aria-label="Clip 1679: raw YOLO knee angle collapses twice while the EKF stays on the ground truth"></video><figcaption>Detector failures filtered out (clip 1679): raw YOLO (red) collapses twice, the EKF (blue) stays on the ground truth. Knee RMSE 26.1° → 8.8°.</figcaption></figure>
+              <figure><video src="videos/ekf_pose/top2_squat_depth_tracked_clip1860.mp4" poster="videos/ekf_pose/top2_squat_depth_tracked_clip1860-poster.webp" width="1280" height="720" muted loop playsinline preload="none" aria-label="Clip 1860: raw YOLO under-reads squat depth, the EKF follows the ground truth"></video><figcaption>Squat depth tracked correctly (clip 1860): raw YOLO under-reads the bottom by 30–40°. Knee RMSE 31.9° → 11.0°.</figcaption></figure>
+              <figure><video src="videos/ekf_pose/top3_simulated_dropout_recovery_clip1860.mp4" poster="videos/ekf_pose/top3_simulated_dropout_recovery_clip1860-poster.webp" width="1280" height="720" muted loop playsinline preload="none" aria-label="Clip 1860 with a simulated detector dropout: the EKF coasts with growing uncertainty ellipses"></video><figcaption>Simulated 25-frame detector dropout: the EKF coasts on its motion model, uncertainty ellipses (2σ) grow, and it snaps back when detections return.</figcaption></figure>
+              <figure><video src="videos/ekf_pose/top4_smooth_clean_squat_clip1808.mp4" poster="videos/ekf_pose/top4_smooth_clean_squat_clip1808-poster.webp" width="1280" height="720" muted loop playsinline preload="none" aria-label="Clip 1808: smooth EKF knee angle on a clean side-view squat"></video><figcaption>Clean input becomes smoother still (clip 1808): jitter 2.5 → 0.4, knee RMSE 7.4° → 5.4°.</figcaption></figure>
+            </div>
+            <div data-content>
+              <p class="meta">Personal project · 2026</p>
+              <h3>Kinematically Constrained EKF for Human Joint-Angle Estimation from Monocular Video</h3>
+              <ul class="stats"><li><b>4×</b><span>smoother knee angle (jitter 5.41 → 1.30)</span></li><li><b>0.52 ms</b><span>EKF cost per frame, CPU</span></li><li><b>~160 fps</b><span>YOLO26n + EKF</span></li></ul>
+              <h4>Problem</h4>
+              <p>Frame-by-frame pose detectors produce jittery keypoints, collapse on hard frames and ignore body
+                structure, so joint angles computed from them are noisy and sometimes physically impossible.</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>A 29-dimensional planar-skeleton state: root position, 9 segment angles with their velocities, and 7 shared bone lengths.</li>
+                <li>Forward kinematics as the measurement model, with an analytic Jacobian checked against finite differences.</li>
+                <li>Ultralytics is used only for YOLO26-Pose inference; all filtering, tracking and evaluation is implemented from scratch.</li>
+              </ul>
+              <h4>Results</h4>
+              <p>Evaluated on 37 side-view squat clips from Penn Action, and on a simulator with known ground truth.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th scope="col">Metric (real data)</th><th scope="col">Raw YOLO26n</th><th scope="col">EKF</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Knee jitter (deg/frame²)</th><td>5.41</td><td><b>1.30</b></td></tr>
+                    <tr><th scope="row">Bone-length variation (CV %)</th><td>11.1</td><td><b>4.8</b></td></tr>
+                    <tr><th scope="row">Frames with an estimate</th><td>99.3%</td><td><b>99.9%</b></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <ul>
+                <li>In simulation, filter consistency is close to ideal (NEES/dim 1.03, NIS/dof 0.99), and knee error is 5.1° against 9.6° for raw keypoints.</li>
+                <li>YOLO26n + EKF is smoother than YOLO26x alone (jitter 1.30 vs 2.68) at about 1/9 of the compute.</li>
+              </ul>
+              <h4>Limitations</h4>
+              <p>In side views YOLO reports the hidden far leg with high confidence, and those guesses corrupt the near
+                leg: the plain EKF's median knee error (12.9°) is above raw YOLO's (9.6°). Masking the occluded leg
+                restores accuracy (9.4°). Only side-view squats were evaluated.</p>
+              <ul class="tags" aria-label="Technologies"><li>Python</li><li>Kalman filtering</li><li>YOLO26-Pose</li><li>Pose estimation</li><li>NumPy</li></ul>
+              <p><a class="btn" href="https://github.com/Sulojan2027/ekf-pose"><svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-github" /></svg>Code</a></p>
+            </div>
+          </template>
+        </article>
+
         <!-- AutoLayout -->
         <article class="card taped work-card">
           <div class="work-card__media work-card__media--contain" style="--media-bg:#0F172A">
